@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         background: "#050505", // Deep premium black
         foreground: "#ffffff",
-        electricBlue: "#000dff", // Accent color
+        electricBlue: "#6366F1", // Changed to a pleasant, modern Indigo/Blue accent
         glass: "rgba(255, 255, 255, 0.05)",
         glassBorder: "rgba(255, 255, 255, 0.1)",
       },
