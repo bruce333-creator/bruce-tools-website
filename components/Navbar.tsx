@@ -86,8 +86,8 @@ export default function Navbar() {
           <Link href="/about" className="text-gray-300 hover:text-white transition-colors py-2">
             About
           </Link>
-          <Link href="/help" className="text-gray-300 hover:text-white transition-colors py-2">
-            Help
+          <Link href="/contact" className="text-gray-300 hover:text-white transition-colors py-2">
+            Contact
           </Link>
         </div>
 
