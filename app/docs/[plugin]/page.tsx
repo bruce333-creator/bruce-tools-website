@@ -12,14 +12,15 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function DocPage({ params }: { params: { plugin: string } }) {
-  const product = products.find(p => p.id === params.plugin);
+export default async function DocPage({ params }: { params: Promise<{ plugin: string }> }) {
+  const resolvedParams = await params;
+  const product = products.find(p => p.id === resolvedParams.plugin);
   
   if (!product) {
     notFound();
   }
 
-  const filename = `README_${params.plugin.replace(/-/g, '_')}.md`;
+  const filename = `README_${resolvedParams.plugin.replace(/-/g, '_')}.md`;
   const filePath = path.join(process.cwd(), "public", "info", filename);
   
   let markdownContent = "";
