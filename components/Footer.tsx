@@ -20,6 +20,7 @@ export default function Footer() {
             <h4 className="text-white font-medium mb-2">Navigation</h4>
             <Link href="/products/renderman-node-wrangler" className="hover:text-electricBlue transition-colors">Products</Link>
             <Link href="/store" className="hover:text-electricBlue transition-colors">Store</Link>
+            <Link href="/docs/vanta-node" className="hover:text-electricBlue transition-colors">Documentation</Link>
             <Link href="/portfolio" className="hover:text-electricBlue transition-colors">Portfolio</Link>
             <Link href="/about" className="hover:text-electricBlue transition-colors">About</Link>
           </div>

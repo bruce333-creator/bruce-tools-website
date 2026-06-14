@@ -14,29 +14,26 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    id: "renderman-node-wrangler",
-    name: "RenderMan Node Wrangler",
-    shortDescription: "Automate repetitive shader creation and workflows directly inside Maya.",
+    id: "vanta-node",
+    name: "Vanta Node",
+    shortDescription: "Accelerate your Arnold shading workflows with automated node networks.",
     price: "9.99€",
-    gumroadUrl: "https://eftools.gumroad.com/l/xgvck",
-    heroImage: "/images/store/renderman-wrangler-logo.jpg",
-    detailsPath: "/products/renderman-node-wrangler",
+    gumroadUrl: "https://eftools.gumroad.com/l/wjbxbt",
+    heroImage: "/images/store/arnold-wrangler-logo.jpg",
+    detailsPath: "/products/vanta-node",
     features: [
-      "Drag-and-Drop Installation",
-      "Smart Texture Recognition",
-      "Interactive Viewport 2.0 Previews",
-      "Automatic Node Networks",
-      "Conditional Displacement Setup"
+      "Arnold Standard Surface Automation",
+      "Color Space Management",
+      "Texture Auto-Link"
     ],
     technicalDetails: [
       "Requires Maya 2022 or higher",
-      "Requires RenderMan 24+",
-      "Python 3.0+"
+      "Arnold for Maya (MtoA)"
     ],
     carouselImages: [
-      "/images/store/renderman-ui.jpg"
+      "/images/store/arnold-ui.jpg"
     ],
-    embeddedVideo: "/videos/home/renderman-demo.mp4"
+    embeddedVideo: "/videos/vanta-node-promo.mp4"
   },
   {
     id: "ultimate-ref-tool",
@@ -64,32 +61,35 @@ export const products: Product[] = [
     embeddedVideo: "/videos/home/ultimate-ref-demo.mp4"
   },
   {
-    id: "arnold-node-wrangler",
-    name: "Arnold Node Wrangler",
-    shortDescription: "Accelerate your Arnold shading workflows with automated node networks.",
+    id: "renderman-node-wrangler",
+    name: "RenderMan Node Wrangler",
+    shortDescription: "Automate repetitive shader creation and workflows directly inside Maya.",
     price: "9.99€",
-    gumroadUrl: "https://eftools.gumroad.com/l/wjbxbt",
-    heroImage: "/images/store/arnold-wrangler-logo.jpg",
-    detailsPath: "#",
+    gumroadUrl: "https://eftools.gumroad.com/l/xgvck",
+    heroImage: "/images/store/renderman-wrangler-logo.jpg",
+    detailsPath: "/products/renderman-node-wrangler",
     features: [
-      "Arnold Standard Surface Automation",
-      "Color Space Management",
-      "Texture Auto-Link"
+      "Drag-and-Drop Installation",
+      "Smart Texture Recognition",
+      "Interactive Viewport 2.0 Previews",
+      "Automatic Node Networks",
+      "Conditional Displacement Setup"
     ],
     technicalDetails: [
       "Requires Maya 2022 or higher",
-      "Arnold for Maya (MtoA)"
+      "Requires RenderMan 24+",
+      "Python 3.0+"
     ],
     carouselImages: [
-      "/images/store/arnold-ui.jpg"
+      "/images/store/renderman-ui.jpg"
     ],
-    embeddedVideo: ""
+    embeddedVideo: "/videos/home/renderman-demo.mp4"
   },
   {
     id: "maya-model-toolkit",
     name: "Maya Model Toolkit",
     shortDescription: "A comprehensive suite of modeling utilities for faster hard-surface iteration.",
-    price: "0.99€",
+    price: "FREE",
     gumroadUrl: "https://eftools.gumroad.com/l/ogfbum",
     heroImage: "/images/store/maya-toolkit-logo.jpg",
     detailsPath: "#",

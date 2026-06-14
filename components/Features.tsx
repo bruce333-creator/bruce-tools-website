@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import LazyVideo from "@/components/LazyVideo";
 
 // Precise hotspot regions based on 953x1651 aspect ratio
 const hotspots = [
@@ -261,14 +262,7 @@ export default function Features() {
             {activeData.media && (
               <div className="relative w-full h-32 rounded-lg overflow-hidden border border-white/5 bg-white/5">
                 {activeData.media.endsWith('.mp4') ? (
-                  <video 
-                    src={activeData.media} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    className="w-full h-full object-cover"
-                  />
+                  <LazyVideo src={activeData.media} />
                 ) : (
                   <Image 
                     src={activeData.media} 
@@ -299,14 +293,7 @@ export default function Features() {
             {activeData.media && (
               <div className="relative w-full h-48 rounded-lg overflow-hidden border border-white/5">
                 {activeData.media.endsWith('.mp4') ? (
-                  <video 
-                    src={activeData.media} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    className="w-full h-full object-cover"
-                  />
+                  <LazyVideo src={activeData.media} />
                 ) : (
                   <Image 
                     src={activeData.media} 

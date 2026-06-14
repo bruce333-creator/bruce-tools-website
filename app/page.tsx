@@ -5,14 +5,15 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { products } from "@/config/products";
 import Image from "next/image";
+import LazyVideo from "@/components/LazyVideo";
 
 export default function Home() {
   const topProducts = products.slice(0, 2);
 
   return (
-    <main className="relative min-h-screen pt-32 pb-20 overflow-hidden text-white selection:bg-electricBlue/30 selection:text-white">
+    <main className="relative min-h-screen pt-32 pb-20 overflow-hidden text-white selection:bg-indigo-500/30 selection:text-white">
       {/* Background Effect */}
-      <div className="absolute top-1/4 left-1/2 w-[800px] h-[800px] bg-electricBlue/10 rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0" />
+      <div className="absolute top-1/4 left-1/2 w-[800px] h-[800px] bg-indigo-500/10 rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0" />
 
       {/* Hero Section */}
       <section className="relative z-10 max-w-6xl mx-auto px-6 text-center mb-32">
@@ -23,7 +24,7 @@ export default function Home() {
           className="text-6xl md:text-8xl font-semibold tracking-tighter mb-6"
         >
           Tools for <br className="hidden md:block" />
-          <span className="text-electricBlue">Modern Maya Artists</span>
+          <span className="text-indigo-500">Modern Maya Artists</span>
         </motion.h1>
 
         <motion.p
@@ -40,7 +41,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
         >
-          <Link href="/store" className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:bg-electricBlue hover:text-white transition-all duration-300">
+          <Link href="/store" className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:bg-indigo-500 hover:text-white transition-all duration-300">
             Explore the Store <ArrowRight size={20} />
           </Link>
         </motion.div>
@@ -62,7 +63,7 @@ export default function Home() {
                 <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">{product.name}</h2>
                 <p className="text-xl text-gray-400 font-light">{product.shortDescription}</p>
                 <div className="pt-4 flex gap-4">
-                  <Link href={product.detailsPath} className="inline-flex items-center gap-2 bg-electricBlue text-black px-6 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all">
+                  <Link href={product.detailsPath} className="inline-flex items-center gap-2 bg-indigo-500 text-black px-6 py-3 rounded-full font-medium hover:bg-white hover:text-black transition-all">
                     Learn More
                   </Link>
                   <Link href="/store" className="inline-flex items-center gap-2 bg-white/10 text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all">
@@ -73,7 +74,7 @@ export default function Home() {
               
               <div className="flex-1 w-full relative aspect-video rounded-xl overflow-hidden bg-black/50 border border-glassBorder">
                 {product.embeddedVideo ? (
-                  <video src={product.embeddedVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+                  <LazyVideo src={product.embeddedVideo} />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center text-gray-600">
                     Image/Video Placeholder
@@ -85,7 +86,7 @@ export default function Home() {
         </div>
         
         <div className="mt-20 text-center">
-          <Link href="/store" className="inline-flex items-center gap-2 text-electricBlue hover:text-white transition-colors text-lg font-medium">
+          <Link href="/store" className="inline-flex items-center gap-2 text-indigo-500 hover:text-white transition-colors text-lg font-medium">
             View all products <ArrowRight size={20} />
           </Link>
         </div>

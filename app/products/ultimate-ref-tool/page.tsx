@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Download, Layers, Eye, Move, Lock, Sliders } from "lucide-react";
+import LazyVideo from "@/components/LazyVideo";
 import Link from "next/link";
 
 export default function UltimateRefTool() {
@@ -59,7 +60,7 @@ export default function UltimateRefTool() {
             transition={{ delay: 0.4 }}
             className="mt-20 relative aspect-video rounded-2xl overflow-hidden border border-glassBorder bg-black shadow-2xl max-w-5xl mx-auto"
           >
-            <video src="/videos/ref-tool/hero-demo.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
+            <LazyVideo src="/videos/ref-tool/hero-demo.mp4" />
           </motion.div>
         </section>
 

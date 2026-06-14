@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { DownloadCloud, MousePointer2, CheckCircle2 } from "lucide-react";
+import LazyVideo from "@/components/LazyVideo";
 
 export default function Installation() {
   const steps = [
@@ -49,7 +50,7 @@ export default function Installation() {
           transition={{ duration: 0.8 }}
           className="w-full max-w-4xl mx-auto aspect-video rounded-3xl border border-glassBorder bg-glass backdrop-blur-xl flex items-center justify-center overflow-hidden"
         >
-           <video src="/videos/installation-video.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
+           <LazyVideo src="/videos/installation-video.mp4" />
         </motion.div>
       </div>
     </section>

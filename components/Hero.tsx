@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Download, PlayCircle } from "lucide-react";
+import LazyVideo from "@/components/LazyVideo";
 import FloatingNodes from "./FloatingNodes";
 
 export default function Hero() {
@@ -62,9 +63,7 @@ export default function Hero() {
         className="relative z-20 w-full max-w-5xl mx-auto mt-20"
       >
         <div className="relative aspect-video rounded-2xl overflow-hidden border border-glassBorder bg-glass backdrop-blur-xl shadow-2xl">
-          <div className="absolute inset-0 flex items-center justify-center -z-10">
-          </div>
-          <video src="/videos/hero-demo.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
+          <LazyVideo src="/videos/hero-demo.mp4" />
         </div>
       </motion.div>
     </section>

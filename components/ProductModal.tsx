@@ -94,9 +94,11 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
           </div>
 
           {/* Content Section */}
-          <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto custom-scrollbar">
+          <div className="w-full md:w-1/2 px-8 pt-8 pb-0 md:px-12 md:pt-12 md:pb-0 overflow-y-auto custom-scrollbar flex flex-col relative">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-2">{product.name}</h2>
-            <p className="text-xl font-medium text-electricBlue mb-6">{product.price}</p>
+            <p className={`text-xl mb-6 ${product.price === "FREE" ? "text-purple-400 drop-shadow-[0_0_15px_rgba(192,132,252,0.8)] animate-pulse font-bold" : "font-medium text-electricBlue"}`}>
+              {product.price}
+            </p>
             
             <p className="text-gray-300 mb-8 leading-relaxed">
               {product.shortDescription}
@@ -130,7 +132,13 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
               </ul>
             </div>
 
-            <div className="sticky bottom-0 pt-4 bg-gradient-to-t from-[#111] via-[#111] to-transparent mt-auto">
+            <div className="sticky bottom-0 pt-6 pb-8 md:pb-12 bg-[#111]/80 backdrop-blur-2xl mt-auto z-20 border-t border-glassBorder/30 -mx-8 px-8 md:-mx-12 md:px-12 flex flex-col gap-3">
+              <a 
+                href={`/docs/${product.id}`}
+                className="w-full flex items-center justify-center gap-2 bg-white/10 text-white px-6 py-3 rounded-xl font-medium hover:bg-white/20 transition-colors"
+              >
+                View Documentation
+              </a>
               <a 
                 href={product.gumroadUrl}
                 className="gumroad-button w-full flex items-center justify-center gap-2 bg-electricBlue text-black px-6 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-black transition-all shadow-lg"

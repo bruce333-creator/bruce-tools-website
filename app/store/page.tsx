@@ -9,7 +9,7 @@ export default function StorePage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   return (
-    <main className="relative min-h-screen pt-32 pb-24 px-6 max-w-7xl mx-auto selection:bg-electricBlue/30 selection:text-white">
+    <main className="relative min-h-screen pt-32 pb-24 px-6 max-w-7xl mx-auto selection:bg-indigo-500/30 selection:text-white">
       
       <div className="text-center mb-20">
         <motion.h1 
@@ -17,7 +17,7 @@ export default function StorePage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-5xl md:text-7xl font-semibold tracking-tighter mb-6"
         >
-          The <span className="text-electricBlue">Store</span>
+          The <span className="text-indigo-500">Store</span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -71,7 +71,7 @@ export default function StorePage() {
                   </button>
                   <a 
                     href={product.gumroadUrl}
-                    className="gumroad-button flex-1 sm:flex-none px-6 py-2.5 rounded-full bg-electricBlue text-black font-medium hover:bg-white transition-colors text-center"
+                    className="gumroad-button flex-1 sm:flex-none px-6 py-2.5 rounded-full bg-indigo-500 text-black font-medium hover:bg-white transition-colors text-center"
                   >
                     {product.price === "FREE" ? "Download" : "Buy Now"}
                   </a>
