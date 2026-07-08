@@ -9,11 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#050505", // Deep premium black
-        foreground: "#ffffff",
-        electricBlue: "#0066FF", // True Electric Blue for RenderMan and accents
-        glass: "rgba(255, 255, 255, 0.05)",
-        glassBorder: "rgba(255, 255, 255, 0.1)",
+        background: "var(--background)",
+        surface: "var(--surface)",
+        "surface-secondary": "var(--surface-secondary)",
+        foreground: "var(--foreground)",
+        "text-secondary": "var(--text-secondary)",
+        border: "var(--border)",
+        accent: "var(--accent)",
+        "accent-hover": "var(--accent-hover)",
+        glass: "rgba(255, 255, 255, 0.7)",
+        glassBorder: "rgba(0, 0, 0, 0.05)",
       },
       fontFamily: {
         sans: ['var(--font-sans)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],

@@ -2,10 +2,10 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-glassBorder bg-black/50 backdrop-blur-md pt-16 pb-8 px-6 text-gray-400">
+    <footer className="w-full border-t border-glassBorder bg-background/50 backdrop-blur-md pt-16 pb-8 px-6 text-text-secondary">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12">
         <div className="flex flex-col gap-4 max-w-sm">
-          <h3 className="text-2xl font-semibold text-white tracking-tight">EF Tools</h3>
+          <h3 className="text-2xl font-semibold text-foreground tracking-tight">EF Tools</h3>
           <p className="text-sm">
             Created by Enzo Freminet
           </p>
@@ -17,20 +17,20 @@ export default function Footer() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full md:w-auto text-sm">
           <div className="flex flex-col gap-3">
-            <h4 className="text-white font-medium mb-2">Navigation</h4>
-            <Link href="/products/renderman-node-wrangler" className="hover:text-electricBlue transition-colors">Products</Link>
-            <Link href="/store" className="hover:text-electricBlue transition-colors">Store</Link>
-            <Link href="/docs/vanta-node" className="hover:text-electricBlue transition-colors">Documentation</Link>
-            <Link href="/portfolio" className="hover:text-electricBlue transition-colors">Portfolio</Link>
-            <Link href="/about" className="hover:text-electricBlue transition-colors">About</Link>
+            <h4 className="text-foreground font-medium mb-2">Navigation</h4>
+            <Link href="/products/renderman-node-wrangler" className="hover:text-accent transition-colors">Products</Link>
+            <Link href="/store" className="hover:text-accent transition-colors">Store</Link>
+            <Link href="/docs/vanta-node" className="hover:text-accent transition-colors">Documentation</Link>
+            <Link href="/portfolio" className="hover:text-accent transition-colors">Portfolio</Link>
+            <Link href="/about" className="hover:text-accent transition-colors">About</Link>
           </div>
           
           <div className="flex flex-col gap-3">
-            <h4 className="text-white font-medium mb-2">Legal</h4>
-            <Link href="/terms" className="hover:text-electricBlue transition-colors">Terms of Service</Link>
-            <Link href="/privacy" className="hover:text-electricBlue transition-colors">Privacy Policy</Link>
-            <Link href="/refund" className="hover:text-electricBlue transition-colors">Refund Policy</Link>
-            <Link href="/license" className="hover:text-electricBlue transition-colors">License</Link>
+            <h4 className="text-foreground font-medium mb-2">Legal</h4>
+            <Link href="/terms" className="hover:text-accent transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
+            <Link href="/refund" className="hover:text-accent transition-colors">Refund Policy</Link>
+            <Link href="/license" className="hover:text-accent transition-colors">License</Link>
           </div>
         </div>
       </div>

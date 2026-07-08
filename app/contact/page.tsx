@@ -50,26 +50,23 @@ export default function Help() {
   };
 
   return (
-    <main className="relative min-h-screen pt-40 pb-24 px-6 flex items-center justify-center selection:bg-electricBlue/30 selection:text-white">
+    <main className="relative min-h-screen pt-40 pb-24 px-6 flex items-center justify-center bg-background text-foreground">
       
-      {/* Background Effect */}
-      <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-electricBlue/10 rounded-full blur-[150px] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0" />
-
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-2xl relative z-10"
       >
         <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-4 text-white">
-            Get in <span className="text-electricBlue">Touch</span>
+          <h1 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-4 text-foreground">
+            Get in <span className="text-accent">Touch</span>
           </h1>
-          <p className="text-xl text-gray-400 font-light">
+          <p className="text-xl text-text-secondary font-light">
             Need help with a tool or have a question? Send me a message.
           </p>
         </div>
 
-        <div className="bg-white/5 border border-glassBorder rounded-3xl p-8 md:p-12 backdrop-blur-xl shadow-2xl relative overflow-hidden">
+        <div className="bg-surface border border-border rounded-3xl p-8 md:p-12 shadow-sm relative overflow-hidden">
           <AnimatePresence mode="wait">
             {status === "success" ? (
               <motion.div
@@ -79,16 +76,16 @@ export default function Help() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 className="flex flex-col items-center justify-center py-12 text-center"
               >
-                <div className="w-20 h-20 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mb-6">
+                <div className="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-6">
                   <CheckCircle size={40} />
                 </div>
-                <h2 className="text-3xl font-semibold mb-4 text-white">Message Sent!</h2>
-                <p className="text-gray-400 max-w-md mb-8">
+                <h2 className="text-3xl font-semibold mb-4 text-foreground">Message Sent!</h2>
+                <p className="text-text-secondary max-w-md mb-8">
                   Thank you for reaching out. I've received your message and will get back to you at {formData.email} as soon as possible.
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="px-8 py-3 bg-white/10 hover:bg-white/20 text-white rounded-full font-medium transition-colors"
+                  className="px-8 py-3 bg-surface-secondary border border-border hover:bg-border text-foreground rounded-full font-medium transition-colors"
                 >
                   Send Another Message
                 </button>
@@ -111,12 +108,12 @@ export default function Help() {
                 
                 {/* Email Field */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-2">
                     Your Email
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <Mail size={18} className="text-gray-500" />
+                      <Mail size={18} className="text-text-secondary/50" />
                     </div>
                     <input
                       type="email"
@@ -124,7 +121,7 @@ export default function Help() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-black/50 border border-glassBorder rounded-xl py-3 pl-11 pr-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-electricBlue/50 focus:border-electricBlue transition-all"
+                      className="w-full bg-surface border border-border rounded-xl py-3 pl-11 pr-4 text-foreground placeholder-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
                       placeholder="you@example.com"
                       disabled={isSubmitting}
                     />
@@ -133,12 +130,12 @@ export default function Help() {
 
                 {/* Subject Field */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-text-secondary mb-2">
                     Subject
                   </label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <MessageSquare size={18} className="text-gray-500" />
+                      <MessageSquare size={18} className="text-text-secondary/50" />
                     </div>
                     <input
                       type="text"
@@ -146,7 +143,7 @@ export default function Help() {
                       required
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full bg-black/50 border border-glassBorder rounded-xl py-3 pl-11 pr-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-electricBlue/50 focus:border-electricBlue transition-all"
+                      className="w-full bg-surface border border-border rounded-xl py-3 pl-11 pr-4 text-foreground placeholder-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
                       placeholder="e.g. Question about Ultimate Ref Tool"
                       disabled={isSubmitting}
                     />
@@ -155,7 +152,7 @@ export default function Help() {
 
                 {/* Message Field */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-2">
                     Message
                   </label>
                   <textarea
@@ -164,7 +161,7 @@ export default function Help() {
                     rows={6}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-black/50 border border-glassBorder rounded-xl py-4 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-electricBlue/50 focus:border-electricBlue transition-all resize-none"
+                    className="w-full bg-surface border border-border rounded-xl py-4 px-4 text-foreground placeholder-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
                     placeholder="How can I help you?"
                     disabled={isSubmitting}
                   />
@@ -174,7 +171,7 @@ export default function Help() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 bg-electricBlue text-white font-medium py-4 rounded-xl hover:bg-electricBlue/80 transition-colors mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white font-medium py-4 rounded-xl hover:bg-blue-700 transition-colors mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>

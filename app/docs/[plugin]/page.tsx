@@ -31,7 +31,7 @@ export default async function DocPage({ params }: { params: Promise<{ plugin: st
   }
 
   return (
-    <article className="prose prose-invert prose-gray max-w-none prose-headings:font-semibold prose-a:text-blue-400 hover:prose-a:text-blue-300 prose-pre:bg-[#111] prose-pre:border prose-pre:border-glassBorder/30">
+    <article className="prose prose-zinc max-w-none prose-headings:font-semibold prose-a:text-accent prose-pre:bg-surface-secondary prose-pre:border prose-pre:border-border">
       <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
         {markdownContent}
       </ReactMarkdown>
