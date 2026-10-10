@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
-
-// Using a fallback approach for system fonts since we don't have local SF Pro files.
-// Next.js allows mapping this to standard sans-serif which tailwind will handle.
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+const inter = Inter({
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "EF Tools | Professional Tools for Maya Artists",
-  description: "Build complete shader networks in seconds. Automate repetitive workflows directly inside Autodesk Maya.",
+  title: "EF Tools | Free Maya Plugins",
+  description: "Free tools for Autodesk Maya artists: Rman Node, Ultimate Ref Tool, and ArNode.",
 };
 
 export default function RootLayout({
@@ -21,14 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased bg-background text-foreground min-h-screen flex flex-col`}>
+    <html lang="en" className="dark">
+      <body className={`${inter.className} antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-accent/20 selection:text-foreground`}>
         <Navbar />
         <div className="flex-1">
           {children}
         </div>
         <Footer />
-        <Script src="https://gumroad.com/js/gumroad.js" strategy="lazyOnload" />
       </body>
     </html>
   );

@@ -1,98 +1,103 @@
-"use client";
-
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { products, Product } from "@/config/products";
-import ProductModal from "@/components/ProductModal";
+import Link from "next/link";
 import Image from "next/image";
+import { Download, ArrowRight, ArrowLeft } from "lucide-react";
+import { products } from "@/config/products";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "All Tools | EF Tools",
+  description: "Browse free tools for Autodesk Maya.",
+};
 
 export default function StorePage() {
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-
   return (
-    <main className="relative min-h-screen pt-32 pb-32 px-6 max-w-7xl mx-auto selection:bg-accent selection:text-background text-foreground">
-      
-      <div className="mb-24 md:mb-32">
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-7xl font-medium tracking-tight mb-6"
-        >
-          Tools Catalog
-        </motion.h1>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-xl md:text-2xl text-text-secondary font-light max-w-2xl"
-        >
-          Professional plugins and scripts designed to accelerate your workflow in Autodesk Maya.
-        </motion.p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-        {products.map((product, idx) => (
-          <motion.div
-            key={product.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: idx * 0.1, ease: [0.16, 1, 0.3, 1], duration: 0.8 }}
-            className="group flex flex-col"
+    <main className="min-h-screen bg-[#141413] text-[#EDEDEC] pt-28 pb-32 px-6">
+      <div className="max-w-6xl mx-auto space-y-12">
+        
+        {/* Back Link */}
+        <div>
+          <Link 
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
           >
-            {/* Visual Header */}
-            <div 
-              className="relative aspect-[4/3] w-full bg-surface-secondary border border-border rounded-3xl overflow-hidden mb-8 cursor-pointer"
-              onClick={() => setSelectedProduct(product)}
+            <ArrowLeft size={13} />
+            <span>Home</span>
+          </Link>
+        </div>
+
+        {/* Header */}
+        <section className="space-y-3 max-w-xl">
+          <h1 className="text-3xl sm:text-4xl font-normal tracking-tight text-foreground">
+            All Tools
+          </h1>
+          <p className="text-sm text-text-secondary leading-relaxed">
+            Free tools developed for Autodesk Maya. Download directly from GitHub Releases.
+          </p>
+        </section>
+
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-border pt-8">
+          {products.map((product) => (
+            <article 
+              key={product.id}
+              className="rounded-2xl border border-border bg-surface p-6 flex flex-col justify-between space-y-5 hover:border-border-hover transition-colors"
             >
-              {product.heroImage ? (
-                <Image 
-                  src={product.heroImage} 
-                  alt={product.name} 
-                  fill
-                  className="object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out" 
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center text-text-secondary">
-                  Product Preview
+              <div className="space-y-3.5">
+                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-border bg-surface-secondary">
+                  <Image 
+                    src={product.uiScreenshot || product.heroImage} 
+                    alt={product.name} 
+                    fill
+                    className="object-cover" 
+                    sizes="(max-width: 768px) 100vw, 500px"
+                  />
                 </div>
-              )}
-            </div>
-            
-            {/* Content */}
-            <div className="flex flex-col flex-1 px-2">
-              <div className="flex justify-between items-start gap-4 mb-4">
-                <h2 className="text-3xl font-medium tracking-tight">{product.name}</h2>
-                <span className="bg-surface-secondary border border-border px-3 py-1 rounded-full text-sm font-medium whitespace-nowrap mt-1">
-                  {product.price}
-                </span>
+
+                <div className="flex items-center justify-between gap-2 text-xs">
+                  <span className="text-accent font-medium">{product.version}</span>
+                  <span className="text-text-muted">{product.compatibility}</span>
+                </div>
+
+                <h2 className="text-2xl font-medium text-foreground tracking-tight">
+                  <Link href={product.detailsPath} className="hover:text-accent transition-colors">
+                    {product.name}
+                  </Link>
+                </h2>
+
+                <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
+                  {product.shortDescription}
+                </p>
               </div>
 
-              <p className="text-lg text-text-secondary mb-8 leading-relaxed flex-1">
-                {product.shortDescription}
-              </p>
-              
-              {/* Actions */}
-              <div className="flex flex-wrap items-center gap-3">
-                <button 
-                  onClick={() => setSelectedProduct(product)}
-                  className="px-6 py-3 rounded-full bg-surface border border-border text-foreground font-medium hover:bg-surface-secondary transition-colors"
+              <div className="pt-4 border-t border-border/60 flex items-center justify-between gap-3 text-xs">
+                {product.isDownloadReady ? (
+                  <a
+                    href={product.downloadUrl}
+                    download
+                    className="px-4 py-2 rounded-lg bg-accent text-white hover:bg-accent-hover font-medium transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <Download size={13} />
+                    Download
+                  </a>
+                ) : (
+                  <span className="text-xs text-text-muted">
+                    Release coming soon
+                  </span>
+                )}
+
+                <Link
+                  href={product.detailsPath}
+                  className="px-3.5 py-2 rounded-lg border border-[#333331] bg-[#222221] text-[#D4D4D2] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white transition-colors inline-flex items-center gap-1.5"
                 >
-                  View Details
-                </button>
-                <a 
-                  href={product.gumroadUrl}
-                  target="_blank" rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors"
-                >
-                  {product.price === "FREE" ? "Get for free" : "Buy Now"}
-                </a>
+                  Details
+                  <ArrowRight size={13} />
+                </Link>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </article>
+          ))}
+        </div>
+
       </div>
-
-      <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
     </main>
   );
 }

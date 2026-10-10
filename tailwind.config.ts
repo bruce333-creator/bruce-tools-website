@@ -6,38 +6,31 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
         background: "var(--background)",
         surface: "var(--surface)",
         "surface-secondary": "var(--surface-secondary)",
+        "surface-tertiary": "var(--surface-tertiary)",
         foreground: "var(--foreground)",
         "text-secondary": "var(--text-secondary)",
+        "text-muted": "var(--text-muted)",
         border: "var(--border)",
+        "border-hover": "var(--border-hover)",
         accent: "var(--accent)",
         "accent-hover": "var(--accent-hover)",
-        glass: "rgba(255, 255, 255, 0.7)",
-        glassBorder: "rgba(0, 0, 0, 0.05)",
+        "accent-subtle": "var(--accent-subtle)",
       },
       fontFamily: {
-        sans: ['var(--font-sans)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-      },
-      animation: {
-        blob: "blob 10s infinite",
-      },
-      keyframes: {
-        blob: {
-          "0%": { transform: "translate(0px, 0px) scale(1)" },
-          "33%": { transform: "translate(50px, -50px) scale(1.1)" },
-          "66%": { transform: "translate(-50px, 20px) scale(0.9)" },
-          "100%": { transform: "translate(0px, 0px) scale(1)" },
-        },
+        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
     },
   },
   plugins: [
-    require('@tailwindcss/typography')
+    require('@tailwindcss/typography'),
   ],
 };
 export default config;

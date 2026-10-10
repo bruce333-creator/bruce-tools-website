@@ -1,28 +1,46 @@
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | EF Tools",
+};
+
 export default function Privacy() {
   return (
-    <main className="relative min-h-screen pt-32 pb-24 px-6 max-w-3xl mx-auto text-text-secondary">
-      <h1 className="text-4xl md:text-5xl font-semibold text-foreground mb-8 tracking-tight">Privacy Policy</h1>
-      
-      <div className="space-y-8 leading-relaxed font-light">
-        <section>
-          <h2 className="text-xl font-medium text-foreground mb-4">1. Data Collection</h2>
-          <p>We do not sell, rent, or lease any of your personal data to third parties. Any information collected is strictly for the purpose of fulfilling your order and improving our tools.</p>
-        </section>
+    <main className="min-h-screen bg-[#141413] text-[#EDEDEC] pt-28 pb-32 px-6">
+      <div className="max-w-3xl mx-auto space-y-12">
+        <div>
+          <Link 
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-text-secondary hover:text-foreground transition-colors"
+          >
+            <ArrowLeft size={13} />
+            <span>Home</span>
+          </Link>
+        </div>
 
-        <section>
-          <h2 className="text-xl font-medium text-foreground mb-4">2. Payment Processing</h2>
-          <p>All payments are securely processed and handled by Gumroad. EF Tools does not have direct access to your credit card information or payment details.</p>
-        </section>
+        <div>
+          <h1 className="font-serif text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-2">Privacy Policy</h1>
+          <p className="text-xs font-mono text-text-muted">Effective Date: 2026</p>
+        </div>
+        
+        <div className="space-y-8 text-sm text-text-secondary leading-relaxed font-sans border-t border-border pt-8">
+          <section className="space-y-2">
+            <h2 className="font-serif text-lg font-medium text-foreground">1. No User Data Collection</h2>
+            <p>EF Tools plugins do not contain telemetry, tracking, background networking calls, or account authentication. They execute purely locally inside your local Autodesk Maya Python environment.</p>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-medium text-foreground mb-4">3. Analytics and Cookies</h2>
-          <p>We may use basic analytics and cookies to understand website traffic and improve user experience. This data is anonymized and not linked to your personal identity.</p>
-        </section>
+          <section className="space-y-2">
+            <h2 className="font-serif text-lg font-medium text-foreground">2. Direct Downloads</h2>
+            <p>All tool files are hosted directly on GitHub Releases. When downloading, GitHub operates according to its own privacy policy.</p>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-medium text-foreground mb-4">4. Contact Us</h2>
-          <p>If you have any questions or concerns regarding your privacy, please contact EF Tools directly through our support channels.</p>
-        </section>
+          <section className="space-y-2">
+            <h2 className="font-serif text-lg font-medium text-foreground">3. Website Analytics</h2>
+            <p>This static website does not use tracking cookies or persistent advertising identifiers.</p>
+          </section>
+        </div>
       </div>
     </main>
   );

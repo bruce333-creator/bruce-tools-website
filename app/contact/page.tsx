@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Send, Mail, MessageSquare, CheckCircle, Loader2, AlertCircle } from "lucide-react";
+import Link from "next/link";
+import { Send, Mail, MessageSquare, CheckCircle, Loader2, AlertCircle, ArrowLeft } from "lucide-react";
 
-export default function Help() {
+export default function ContactPage() {
   const [formData, setFormData] = useState({
     email: "",
     subject: "",
@@ -31,7 +31,7 @@ export default function Help() {
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          from_name: "EF Tools Help Page"
+          from_name: "EF Tools Contact"
         }),
       });
       
@@ -50,146 +50,132 @@ export default function Help() {
   };
 
   return (
-    <main className="relative min-h-screen pt-40 pb-24 px-6 flex items-center justify-center bg-background text-foreground">
-      
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-2xl relative z-10"
-      >
-        <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-semibold tracking-tighter mb-4 text-foreground">
-            Get in <span className="text-accent">Touch</span>
-          </h1>
-          <p className="text-xl text-text-secondary font-light">
-            Need help with a tool or have a question? Send me a message.
-          </p>
+    <main className="min-h-screen bg-[#141413] text-[#EDEDEC] pt-28 pb-32 px-6">
+      <div className="max-w-2xl mx-auto space-y-12">
+        <div>
+          <Link 
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
+          >
+            <ArrowLeft size={13} />
+            <span>Home</span>
+          </Link>
         </div>
 
-        <div className="bg-surface border border-border rounded-3xl p-8 md:p-12 shadow-sm relative overflow-hidden">
-          <AnimatePresence mode="wait">
-            {status === "success" ? (
-              <motion.div
-                key="success"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                className="flex flex-col items-center justify-center py-12 text-center"
-              >
-                <div className="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-6">
-                  <CheckCircle size={40} />
-                </div>
-                <h2 className="text-3xl font-semibold mb-4 text-foreground">Message Sent!</h2>
-                <p className="text-text-secondary max-w-md mb-8">
-                  Thank you for reaching out. I've received your message and will get back to you at {formData.email} as soon as possible.
-                </p>
-                <button
-                  onClick={() => setStatus("idle")}
-                  className="px-8 py-3 bg-surface-secondary border border-border hover:bg-border text-foreground rounded-full font-medium transition-colors"
-                >
-                  Send Another Message
-                </button>
-              </motion.div>
-            ) : (
-              <motion.form
-                key="form"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onSubmit={handleSubmit}
-                className="space-y-6"
-              >
-                {status === "error" && (
-                  <div className="bg-red-500/10 border border-red-500/20 text-red-400 px-4 py-3 rounded-xl flex items-center gap-3">
-                    <AlertCircle size={20} />
-                    <span>Something went wrong. Please try again later.</span>
-                  </div>
-                )}
-                
-                {/* Email Field */}
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-2">
-                    Your Email
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <Mail size={18} className="text-text-secondary/50" />
-                    </div>
-                    <input
-                      type="email"
-                      id="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-surface border border-border rounded-xl py-3 pl-11 pr-4 text-foreground placeholder-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
-                      placeholder="you@example.com"
-                      disabled={isSubmitting}
-                    />
-                  </div>
-                </div>
+        <section className="space-y-3">
+          <h1 className="text-3xl sm:text-4xl font-normal tracking-tight text-foreground">
+            Contact
+          </h1>
+          <p className="text-sm text-text-secondary leading-relaxed">
+            Have a question, feedback, or a bug to report regarding one of the Maya plugins? Send a message directly.
+          </p>
+        </section>
 
-                {/* Subject Field */}
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-text-secondary mb-2">
-                    Subject
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <MessageSquare size={18} className="text-text-secondary/50" />
-                    </div>
-                    <input
-                      type="text"
-                      id="subject"
-                      required
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full bg-surface border border-border rounded-xl py-3 pl-11 pr-4 text-foreground placeholder-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
-                      placeholder="e.g. Question about Ultimate Ref Tool"
-                      disabled={isSubmitting}
-                    />
-                  </div>
+        <div className="rounded-2xl border border-border bg-surface p-6 sm:p-8">
+          {status === "success" ? (
+            <div className="flex flex-col items-center justify-center py-10 text-center space-y-4">
+              <div className="w-12 h-12 bg-surface-secondary border border-border text-accent rounded-full flex items-center justify-center">
+                <CheckCircle size={24} />
+              </div>
+              <h2 className="text-xl font-medium text-foreground">Message Sent</h2>
+              <p className="text-xs text-text-secondary max-w-sm">
+                Thank you. Your message has been transmitted and I will review it shortly.
+              </p>
+              <button
+                onClick={() => setStatus("idle")}
+                className="mt-4 px-4 py-2 rounded-lg border border-border hover:bg-surface-secondary text-xs text-text-secondary hover:text-foreground transition-colors"
+              >
+                Send another message
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5 text-sm">
+              {status === "error" && (
+                <div className="bg-red-950/30 border border-red-800/40 text-red-200 px-4 py-3 rounded-lg flex items-center gap-2.5 text-xs">
+                  <AlertCircle size={16} className="text-red-400 shrink-0" />
+                  <span>Unable to send message right now. Please try again later.</span>
                 </div>
-
-                {/* Message Field */}
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
+              )}
+              
+              <div>
+                <label htmlFor="email" className="block text-xs text-text-secondary mb-1.5">
+                  Email Address
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-text-muted">
+                    <Mail size={15} />
+                  </div>
+                  <input
+                    type="email"
+                    id="email"
                     required
-                    rows={6}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-surface border border-border rounded-xl py-4 px-4 text-foreground placeholder-text-secondary/50 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"
-                    placeholder="How can I help you?"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full bg-[#141413] border border-border rounded-lg py-2.5 pl-10 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-border-hover transition-colors"
+                    placeholder="you@studio.com"
                     disabled={isSubmitting}
                   />
                 </div>
+              </div>
 
-                {/* Submit Button */}
-                <button
-                  type="submit"
+              <div>
+                <label htmlFor="subject" className="block text-xs text-text-secondary mb-1.5">
+                  Subject / Plugin
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-text-muted">
+                    <MessageSquare size={15} />
+                  </div>
+                  <input
+                    type="text"
+                    id="subject"
+                    required
+                    value={formData.subject}
+                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    className="w-full bg-[#141413] border border-border rounded-lg py-2.5 pl-10 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-border-hover transition-colors"
+                    placeholder="e.g. RenderMan Node Wrangler issue on Maya 2024"
+                    disabled={isSubmitting}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-xs text-text-secondary mb-1.5">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  required
+                  rows={5}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full bg-[#141413] border border-border rounded-lg p-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-border-hover transition-colors resize-none"
+                  placeholder="Describe your question or reproduction steps..."
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white font-medium py-4 rounded-xl hover:bg-blue-700 transition-colors mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 size={18} className="animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send size={18} />
-                      Send Message
-                    </>
-                  )}
-                </button>
-              </motion.form>
-            )}
-          </AnimatePresence>
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-2.5 rounded-lg bg-[#EDEDEC] text-[#141413] hover:bg-white text-xs font-medium transition-colors flex items-center justify-center gap-2 disabled:opacity-50 shadow-sm"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={14} className="animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send size={14} />
+                    Send message
+                  </>
+                )}
+              </button>
+            </form>
+          )}
         </div>
-      </motion.div>
+      </div>
     </main>
   );
 }

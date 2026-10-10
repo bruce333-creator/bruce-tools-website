@@ -1,47 +1,69 @@
-"use client";
+import Link from "next/link";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
 
-import { motion } from "framer-motion";
+export const metadata: Metadata = {
+  title: "About | EF Tools",
+  description: "About EF Tools: free, practical Autodesk Maya utilities created by Enzo Freminet.",
+};
 
 export default function About() {
   return (
-    <main className="relative min-h-screen pt-40 pb-24 px-6 max-w-4xl mx-auto flex flex-col justify-center">
-      
-      <div className="relative z-10 flex flex-col items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-12 flex flex-col items-center"
-        >
-          <h1 className="text-6xl md:text-8xl font-semibold tracking-tighter mb-10 text-foreground">
-            EF Tools
+    <main className="min-h-screen bg-[#141413] text-[#EDEDEC] pt-28 pb-32 px-6">
+      <div className="max-w-2xl mx-auto space-y-12">
+        
+        {/* Back Link */}
+        <div>
+          <Link 
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
+          >
+            <ArrowLeft size={13} />
+            <span>Home</span>
+          </Link>
+        </div>
+
+        {/* Header */}
+        <section className="space-y-3">
+          <h1 className="text-3xl sm:text-4xl font-normal tracking-tight text-foreground">
+            About EF Tools
           </h1>
-          
-          {/* Logo */}
-          <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-surface border border-border flex items-center justify-center overflow-hidden mb-10 shadow-sm relative">
-            <img src="/images/logo.png" alt="EF Tools Logo" className="w-full h-full object-cover absolute inset-0 z-20" />
-          </div>
+          <p className="text-sm text-text-muted">
+            By Enzo Freminet — Lyon, France
+          </p>
+        </section>
 
-          <p className="text-xl text-text-secondary font-light tracking-wide">
-            Created by <span className="text-foreground">Enzo Freminet</span>
+        {/* Content */}
+        <section className="space-y-6 text-sm sm:text-base text-text-secondary leading-relaxed border-t border-border pt-8">
+          <p>
+            EF Tools is a small collection of Python utilities I created to automate repetitive tasks in Autodesk Maya.
           </p>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="space-y-8 text-xl md:text-2xl text-text-secondary font-light leading-relaxed max-w-3xl flex flex-col items-center"
-        >
           <p>
-            EF Tools is an independent project focused on building practical and elegant tools for Autodesk Maya artists.
+            When working on 3D projects, setting up identical shader nodes for every material or aligning image planes manually takes a lot of time. I wrote these tools to make those steps faster and simpler.
           </p>
+
           <p>
-            The goal is to simplify repetitive workflows and create production-ready solutions for modeling, look development, and rendering. By automating the tedious aspects of the pipeline, artists can focus entirely on what matters: the art.
+            All tools are completely free to download and use in personal or commercial projects. No account or registration is required.
           </p>
-          <p className="text-text-secondary text-lg pt-8 border-t border-border w-32 text-center">
-            Lyon, France
-          </p>
-        </motion.div>
+        </section>
+
+        {/* Links */}
+        <section className="border-t border-border pt-8 flex items-center justify-between text-xs">
+          <span className="text-text-muted">
+            Autodesk Maya 2020–2025+
+          </span>
+          <a
+            href="https://github.com/bruce333-creator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3.5 py-1.5 rounded-lg border border-[#333331] bg-[#222221] text-[#D4D4D2] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white transition-colors inline-flex items-center gap-1.5"
+          >
+            <span>GitHub Releases</span>
+            <ArrowUpRight size={13} />
+          </a>
+        </section>
+
       </div>
     </main>
   );

@@ -1,22 +1,40 @@
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Refund Policy | EF Tools",
+};
+
 export default function Refund() {
   return (
-    <main className="relative min-h-screen pt-32 pb-24 px-6 max-w-3xl mx-auto text-text-secondary">
-      <h1 className="text-4xl md:text-5xl font-semibold text-foreground mb-8 tracking-tight">Refund Policy</h1>
-      
-      <div className="space-y-8 leading-relaxed font-light">
-        <section className="bg-red-50 border border-red-200 p-6 rounded-xl text-red-800">
-          <p className="font-medium text-lg">Due to the digital nature of the products, all sales are final.</p>
-        </section>
+    <main className="min-h-screen bg-[#141413] text-[#EDEDEC] pt-28 pb-32 px-6">
+      <div className="max-w-3xl mx-auto space-y-12">
+        <div>
+          <Link 
+            href="/"
+            className="inline-flex items-center gap-1.5 text-xs font-mono text-text-secondary hover:text-foreground transition-colors"
+          >
+            <ArrowLeft size={13} />
+            <span>Home</span>
+          </Link>
+        </div>
 
-        <section>
-          <h2 className="text-xl font-medium text-foreground mb-4">Strict Policy</h2>
-          <p>Because software files cannot be "returned" once downloaded, we operate a strict no-refund policy. Please ensure that your system meets the technical requirements before making a purchase.</p>
-        </section>
+        <div>
+          <h1 className="text-3xl sm:text-4xl font-normal text-foreground tracking-tight mb-2">Refund Policy</h1>
+          <p className="text-xs text-text-muted">Effective Date: 2026</p>
+        </div>
+        
+        <div className="space-y-8 text-sm text-text-secondary leading-relaxed border-t border-border pt-8">
+          <section className="p-4 rounded-xl border border-border bg-surface text-foreground">
+            <p className="font-medium text-sm">All EF Tools plugins are completely free of charge.</p>
+          </section>
 
-        <section>
-          <h2 className="text-xl font-medium text-foreground mb-4">Exceptions</h2>
-          <p>Refunds may only be considered if the software is proven to be completely unusable on officially supported software versions. If you encounter a critical bug, please contact support with detailed reproduction steps.</p>
-        </section>
+          <section className="space-y-2">
+            <p>Because our Maya plugins (Rman Node, Ultimate Ref Tool, and ArNode) are distributed as free, open downloads without financial transactions, payment details, or subscriptions, no refund requests are applicable.</p>
+            <p>If you encounter technical issues or bugs in any script, please submit an issue on the relevant GitHub repository or reach out via our contact page.</p>
+          </section>
+        </div>
       </div>
     </main>
   );

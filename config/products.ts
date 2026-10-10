@@ -1,114 +1,112 @@
 export type Product = {
   id: string;
   name: string;
+  alternateName?: string;
+  version: string;
   shortDescription: string;
-  price: string;
-  gumroadUrl: string;
+  compatibility: string;
+  platforms: string;
+  downloadUrl: string; // Direct file URL on GitHub Releases
+  isDownloadReady: boolean;
   heroImage: string;
-  detailsPath: string; // The path to the detailed page if it exists (e.g. /products/renderman-node-wrangler)
+  uiScreenshot: string;
+  detailsPath: string;
+  docsPath: string;
   features: string[];
   technicalDetails: string[];
-  carouselImages: string[];
-  embeddedVideo: string;
+  embeddedVideo?: string;
 };
 
 export const products: Product[] = [
   {
-    id: "vanta-node",
-    name: "Vanta Node",
-    shortDescription: "Accelerate your Arnold shading workflows with automated node networks.",
-    price: "9.99€",
-    gumroadUrl: "https://eftools.gumroad.com/l/wjbxbt",
-    heroImage: "/images/store/arnold-wrangler-logo.jpg",
-    detailsPath: "/products/vanta-node",
+    id: "renderman-node-wrangler",
+    name: "Rman Node",
+    alternateName: "RenderMan Node Wrangler",
+    version: "v2.0",
+    shortDescription: "Automate PBR shader creation, 15 calibrated physical presets, texture HUD inspection, and 100% automated displacement for Pixar's RenderMan in Maya.",
+    compatibility: "Maya 2022+ · RenderMan 24/25/26+ · Python 3",
+    platforms: "Windows & macOS",
+    downloadUrl: "https://github.com/bruce333-creator/Rman_Node/releases/download/maj/RMNW.zip",
+    isDownloadReady: true,
+    heroImage: "/images/store/renderman-wrangler-logo.jpg",
+    uiScreenshot: "/images/store/renderman-ui.jpg",
+    detailsPath: "/products/renderman-node-wrangler",
+    docsPath: "/docs/renderman-node-wrangler",
     features: [
-      "Arnold Standard Surface Automation",
-      "Color Space Management",
-      "Texture Auto-Link"
+      "No prior PxrSurface needed: drop textures and click Build Material to create shader, shading group, and clean nodal network",
+      "Ambient Occlusion auto-wiring: PxrBlend Multiply integration with Base Color",
+      "100% automated displacement chain: PxrTexture -> PxrDispTransform (Centered) -> PxrDisplace (calibrated dispAmount 0.1)",
+      "15 calibrated PBR presets: Metal, Plastic, Glass, Skin, Fabric, Rubber, Wood, Stone, Leaves, Car Paint, etc.",
+      "Snug Texture HUD (Shift+V / MMB): instant texture preview, live PxrRemap bounds feedback, and pin mode",
+      "Viewport 2.0 clean preview: neutral Lambert viewport fallback without green/black shading bugs",
+      "Standalone installer: Drag-and-drop Installer_Rman_Node.py creates shelf button with official icon"
     ],
     technicalDetails: [
-      "Requires Maya 2022 or higher",
-      "Arnold for Maya (MtoA)"
+      "Autodesk Maya 2022, 2023, 2024, 2025, 2026+",
+      "Pixar's RenderMan 24+, 25+, 26+",
+      "Python 3 (PySide2 & PySide6)",
+      "Formats: .tx, .png, .jpg, .exr, .tif, .tiff, .hdr"
     ],
-    carouselImages: [
-      "/images/store/arnold-ui.jpg"
-    ],
-    embeddedVideo: "/videos/vanta-node-promo.mp4"
+    embeddedVideo: "/videos/build-shader.mp4"
   },
   {
     id: "ultimate-ref-tool",
     name: "Ultimate Ref Tool",
-    shortDescription: "Drag and drop references with automatic view detection and layer management.",
-    price: "FREE",
-    gumroadUrl: "https://eftools.gumroad.com/l/unypmtq",
+    version: "v2.1",
+    shortDescription: "Fast reference image plane importer with automatic camera axis detection, alpha adjustment, and locked display layer hierarchy.",
+    compatibility: "Maya 2022+ (incl. 2025+)",
+    platforms: "Windows & macOS",
+    downloadUrl: "https://github.com/bruce333-creator/Ultimate_Ref_Tool/releases/download/maj/ultimate_ref_tool_v21.py",
+    isDownloadReady: true,
     heroImage: "/images/store/ultimate-ref-logo.jpg",
+    uiScreenshot: "/images/store/ultimate-ref-ui.jpg",
     detailsPath: "/products/ultimate-ref-tool",
+    docsPath: "/docs/ultimate-ref-tool",
     features: [
-      "Mode Détection Automatique : Drag & drop avec détection des axes (Front, Side, Top)",
-      "Mode Assignation Forcée : Importation manuelle via boutons Add Front / Side / Top",
-      "Automatisation : Alpha à 0.5, Echelle x100 (si mètres), et attributs verrouillés",
-      "Organisation : Rangement dans le groupe REF_IMAGES et le calque REF_LAYER (non-sélectionnable)",
-      "Gestion Globale : Boutons pour masquer/afficher ou supprimer toutes les références d'un coup"
+      "Automatic Axis Detection: Drag & drop images with auto-detection of Front, Side, and Top views",
+      "Manual View Force: Dedicated Add Front / Side / Top buttons for atypical file names",
+      "Automated Setup: 0.5 Alpha Gain, x100 scale compensation for scenes in meters, and locked transforms",
+      "Clean Scene Hierarchy: Grouped in REF_IMAGES and locked on a non-selectable REF_LAYER",
+      "Global Reference Controls: Instant toggle visibility and one-click clean scene purge"
     ],
     technicalDetails: [
-      "Requires Maya 2022 or higher (including 2025+)",
-      "Formats: .png, .jpg, .jpeg, .tga, .tif, .bmp",
-      "Compatible PySide2 & PySide6"
-    ],
-    carouselImages: [
-      "/images/store/ultimate-ref-ui.jpg"
+      "Autodesk Maya 2022, 2023, 2024, 2025+",
+      "Adaptive PySide2 (Maya ≤2024) and PySide6 (Maya ≥2025) compatibility",
+      "Supported formats: .png, .jpg, .jpeg, .tga, .tif, .tiff, .bmp",
+      "No external dependencies required"
     ],
     embeddedVideo: "/videos/home/ultimate-ref-demo.mp4"
   },
   {
-    id: "renderman-node-wrangler",
-    name: "RenderMan Node Wrangler",
-    shortDescription: "Automate repetitive shader creation and workflows directly inside Maya.",
-    price: "9.99€",
-    gumroadUrl: "https://eftools.gumroad.com/l/xgvck",
-    heroImage: "/images/store/renderman-wrangler-logo.jpg",
-    detailsPath: "/products/renderman-node-wrangler",
-    features: [
-      "Drag-and-Drop Installation",
-      "Smart Texture Recognition",
-      "Interactive Viewport 2.0 Previews",
-      "Automatic Node Networks",
-      "Conditional Displacement Setup"
-    ],
+    id: "arnold-node-wrangler",
+    name: "ArNode",
+    alternateName: "Arnold Node Wrangler",
+    version: "v1.0",
+    shortDescription: "Coming soon",
+    compatibility: "Maya 2022+ (Arnold / MtoA)",
+    platforms: "Windows & macOS",
+    downloadUrl: "", // Pending release
+    isDownloadReady: false,
+    heroImage: "",
+    uiScreenshot: "",
+    detailsPath: "/products/arnold-node-wrangler",
+    docsPath: "/docs/arnold-node-wrangler",
+    features: [],
     technicalDetails: [
-      "Requires Maya 2022 or higher",
-      "Requires RenderMan 24+",
-      "Python 3.0+"
-    ],
-    carouselImages: [
-      "/images/store/renderman-ui.jpg"
-    ],
-    embeddedVideo: "/videos/home/renderman-demo.mp4"
-  },
-  {
-    id: "maya-model-toolkit",
-    name: "Maya Model Toolkit",
-    shortDescription: "A comprehensive suite of modeling utilities for faster hard-surface iteration.",
-    price: "FREE",
-    gumroadUrl: "https://eftools.gumroad.com/l/ogfbum",
-    heroImage: "/images/store/maya-toolkit-logo.jpg",
-    detailsPath: "#",
-    features: [
-      "Drop to Ground (Y = 0): Calcule la bounding box et pose l'objet sur la grille",
-      "Center to World (0, 0, 0): Déplace instantanément l'objet au centre",
-      "Freeze + Center Pivot + Delete History: Le combo classique en un clic",
-      "Extreme Cleaner History: Purge les erreurs invisibles via reconstruction du shape",
-      "Pivot → Vertex / Edge Center / Face Center: Snapping de pivot avancé sans raccourcis",
-      "Quad Cap Cylinder: Cylindre 100% Quads optimisé pour la subdivision",
-      "Support Loop Option: Génération automatique d'arêtes de soutien sur les caps"
-    ],
-    technicalDetails: [
-      "Requires Maya 2022 or higher",
-      "Interface divisée en sections rétractables"
-    ],
-    carouselImages: [
-      "/images/store/maya-toolkit-ui.jpg"
-    ],
-    embeddedVideo: ""
+      "Autodesk Maya 2022 or higher",
+      "Arnold for Maya (MtoA plugin installed)",
+      "Python 3 runtime",
+      "PySide/Qt modern interface"
+    ]
   }
 ];
+
+export function getProductById(id: string): Product | undefined {
+  if (id === "vanta-node" || id === "arnode" || id === "ar-node") {
+    return products.find(p => p.id === "arnold-node-wrangler");
+  }
+  if (id === "rman-node") {
+    return products.find(p => p.id === "renderman-node-wrangler");
+  }
+  return products.find(p => p.id === id);
+}
