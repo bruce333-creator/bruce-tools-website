@@ -50,60 +50,60 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-28 pb-32 px-6">
-      <div className="max-w-2xl mx-auto space-y-12">
+    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-24 pb-16 px-6">
+      <div className="max-w-2xl mx-auto space-y-6">
         <div>
           <Link 
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground active:text-white transition-colors"
           >
             <ArrowLeft size={13} />
             <span>Home</span>
           </Link>
         </div>
 
-        <section className="space-y-3">
+        <section className="space-y-2">
           <h1 className="text-3xl sm:text-4xl font-normal tracking-tight text-foreground">
             Contact
           </h1>
-          <p className="text-sm text-text-secondary leading-relaxed">
+          <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
             Have a question, feedback, or a bug to report regarding one of the Maya plugins? Send a message directly.
           </p>
         </section>
 
-        <div className="rounded-2xl border border-white/10 bg-[#14151f]/50 backdrop-blur-md p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+        <div className="rounded-2xl border border-[#232530] bg-[#121318] p-5 sm:p-6 shadow-md">
           {status === "success" ? (
-            <div className="flex flex-col items-center justify-center py-10 text-center space-y-4">
-              <div className="w-12 h-12 bg-white/[0.05] border border-white/10 text-accent rounded-full flex items-center justify-center">
-                <CheckCircle size={24} />
+            <div className="flex flex-col items-center justify-center py-8 text-center space-y-3">
+              <div className="w-10 h-10 bg-[#161822] border border-[#232530] text-accent rounded-full flex items-center justify-center">
+                <CheckCircle size={20} />
               </div>
-              <h2 className="text-xl font-medium text-foreground">Message Sent</h2>
+              <h2 className="text-lg font-medium text-foreground">Message Sent</h2>
               <p className="text-xs text-text-secondary max-w-sm">
                 Thank you. Your message has been transmitted and I will review it shortly.
               </p>
               <button
                 onClick={() => setStatus("idle")}
-                className="mt-4 px-4 py-2 rounded-lg border border-white/10 hover:bg-white/[0.08] text-xs text-text-secondary hover:text-foreground transition-all"
+                className="mt-3 px-4 py-2 rounded-lg border border-[#2A2C38] bg-[#161822] hover:bg-[#222432] active:bg-white active:text-black active:border-white text-xs text-text-secondary hover:text-foreground transition-all"
               >
                 Send another message
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5 text-sm">
+            <form onSubmit={handleSubmit} className="space-y-4 text-sm">
               {status === "error" && (
-                <div className="bg-red-950/30 border border-red-800/40 text-red-200 px-4 py-3 rounded-lg flex items-center gap-2.5 text-xs">
-                  <AlertCircle size={16} className="text-red-400 shrink-0" />
+                <div className="bg-red-950/30 border border-red-800/40 text-red-200 px-3.5 py-2.5 rounded-lg flex items-center gap-2 text-xs">
+                  <AlertCircle size={15} className="text-red-400 shrink-0" />
                   <span>Unable to send message right now. Please try again later.</span>
                 </div>
               )}
               
               <div>
-                <label htmlFor="email" className="block text-xs text-text-secondary mb-1.5">
+                <label htmlFor="email" className="block text-xs text-text-secondary mb-1">
                   Email Address
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-text-muted">
-                    <Mail size={15} />
+                    <Mail size={14} />
                   </div>
                   <input
                     type="email"
@@ -111,7 +111,7 @@ export default function ContactPage() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-lg py-2.5 pl-10 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors"
+                    className="w-full bg-[#0E0F14] border border-[#232530] rounded-lg py-2 pl-9 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors"
                     placeholder="you@studio.com"
                     disabled={isSubmitting}
                   />
@@ -119,12 +119,12 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-xs text-text-secondary mb-1.5">
+                <label htmlFor="subject" className="block text-xs text-text-secondary mb-1">
                   Subject / Plugin
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-text-muted">
-                    <MessageSquare size={15} />
+                    <MessageSquare size={14} />
                   </div>
                   <input
                     type="text"
@@ -132,7 +132,7 @@ export default function ContactPage() {
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-lg py-2.5 pl-10 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors"
+                    className="w-full bg-[#0E0F14] border border-[#232530] rounded-lg py-2 pl-9 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors"
                     placeholder="e.g. RenderMan Node Wrangler issue on Maya 2024"
                     disabled={isSubmitting}
                   />
@@ -140,16 +140,16 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-xs text-text-secondary mb-1.5">
+                <label htmlFor="message" className="block text-xs text-text-secondary mb-1">
                   Message
                 </label>
                 <textarea
                   id="message"
                   required
-                  rows={5}
+                  rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-white/[0.04] border border-white/10 rounded-lg p-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors resize-none"
+                  className="w-full bg-[#0E0F14] border border-[#232530] rounded-lg p-2.5 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors resize-none"
                   placeholder="Describe your question or reproduction steps..."
                   disabled={isSubmitting}
                 />
@@ -158,7 +158,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-2.5 rounded-lg bg-[#EDEDEC] text-[#141413] hover:bg-white text-xs font-medium transition-colors flex items-center justify-center gap-2 disabled:opacity-50 shadow-sm"
+                className="w-full py-2.5 rounded-lg bg-[#EDEDEC] text-[#141413] hover:bg-white active:bg-white active:text-black active:border-white text-xs font-medium transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-sm"
               >
                 {isSubmitting ? (
                   <>

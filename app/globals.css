@@ -4,15 +4,15 @@
 
 @layer base {
   :root {
-    --background: #090A0F;
-    --surface: rgba(20, 21, 31, 0.55);
-    --surface-secondary: rgba(24, 26, 38, 0.65);
-    --surface-tertiary: rgba(30, 33, 48, 0.75);
+    --background: #090A0D;
+    --surface: #121318;
+    --surface-secondary: #171821;
+    --surface-tertiary: #1D1F2B;
     --foreground: #EDEDEC;
     --text-secondary: #A0A09C;
     --text-muted: #6E6E6A;
-    --border: rgba(255, 255, 255, 0.08);
-    --border-hover: rgba(255, 255, 255, 0.18);
+    --border: #232530;
+    --border-hover: #333644;
     --accent: #2563EB;
     --accent-hover: #3B82F6;
     --accent-subtle: rgba(37, 99, 235, 0.15);
@@ -22,6 +22,10 @@
 body {
   color: var(--foreground);
   background-color: var(--background);
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

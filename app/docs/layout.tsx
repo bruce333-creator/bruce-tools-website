@@ -4,21 +4,21 @@ import { ArrowLeft } from "lucide-react";
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen pt-28 pb-32 bg-transparent text-[#EDEDEC]">
+    <div className="min-h-screen pt-24 pb-16 bg-transparent text-[#EDEDEC]">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Top bar / Back */}
-        <div className="mb-6">
+        <div className="mb-4">
           <Link 
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground active:text-white transition-colors"
           >
             <ArrowLeft size={13} />
             <span>Home</span>
           </Link>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-10 pt-4">
+        <div className="flex flex-col md:flex-row gap-6 pt-2">
           {/* Docs Sidebar */}
           <aside className="w-full md:w-60 shrink-0 md:sticky top-28 h-fit space-y-4">
             <h2 className="text-foreground text-base font-medium">

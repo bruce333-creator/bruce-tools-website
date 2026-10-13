@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function License() {
   return (
-    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-28 pb-32 px-6">
-      <div className="max-w-3xl mx-auto space-y-12">
+    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-24 pb-16 px-6">
+      <div className="max-w-3xl mx-auto space-y-6">
         <div>
           <Link 
             href="/"

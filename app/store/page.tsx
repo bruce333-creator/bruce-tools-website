@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 
 export default function StorePage() {
   return (
-    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-28 pb-32 px-6">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-24 pb-16 px-6">
+      <div className="max-w-6xl mx-auto space-y-6">
         
         {/* Back Link */}
         <div>
           <Link 
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground active:text-white transition-colors"
           >
             <ArrowLeft size={13} />
             <span>Home</span>
@@ -26,24 +26,24 @@ export default function StorePage() {
         </div>
 
         {/* Header */}
-        <section className="space-y-3 max-w-xl">
+        <section className="space-y-2 max-w-xl">
           <h1 className="text-3xl sm:text-4xl font-normal tracking-tight text-foreground">
             All Tools
           </h1>
-          <p className="text-sm text-text-secondary leading-relaxed">
+          <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
             Free tools developed for Autodesk Maya. Download directly from GitHub Releases.
           </p>
         </section>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
           {products.map((product) => (
             <article 
               key={product.id}
-              className="rounded-2xl border border-white/10 bg-[#14151f]/50 backdrop-blur-md p-6 flex flex-col justify-between space-y-5 hover:border-white/20 hover:bg-[#181926]/60 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+              className="rounded-2xl border border-[#232530] bg-[#121318] p-5 flex flex-col justify-between space-y-4 hover:border-[#333644] transition-colors shadow-md"
             >
-              <div className="space-y-3.5">
-                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-border bg-surface-secondary">
+              <div className="space-y-3">
+                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-[#232530] bg-[#090A0D]">
                   <Image 
                     src={product.uiScreenshot || product.heroImage} 
                     alt={product.name} 
@@ -58,7 +58,7 @@ export default function StorePage() {
                   <span className="text-text-muted">{product.compatibility}</span>
                 </div>
 
-                <h2 className="text-2xl font-medium text-foreground tracking-tight">
+                <h2 className="text-xl font-medium text-foreground tracking-tight">
                   <Link href={product.detailsPath} className="hover:text-accent transition-colors">
                     {product.name}
                   </Link>
@@ -69,12 +69,12 @@ export default function StorePage() {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-border/60 flex items-center justify-between gap-3 text-xs">
+              <div className="pt-3 border-t border-[#232530] flex items-center justify-between gap-3 text-xs">
                 {product.isDownloadReady ? (
                   <a
                     href={product.downloadUrl}
                     download
-                    className="px-4 py-2 rounded-lg bg-accent text-white hover:bg-accent-hover font-medium transition-colors inline-flex items-center gap-1.5"
+                    className="px-4 py-2 rounded-lg bg-accent text-white hover:bg-accent-hover active:bg-white active:text-black active:border-white font-medium transition-all inline-flex items-center gap-1.5"
                   >
                     <Download size={13} />
                     Download
@@ -87,7 +87,7 @@ export default function StorePage() {
 
                 <Link
                   href={product.detailsPath}
-                  className="px-3.5 py-2 rounded-lg border border-[#333331] bg-[#222221] text-[#D4D4D2] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white transition-colors inline-flex items-center gap-1.5"
+                  className="px-3.5 py-2 rounded-lg border border-[#2A2C38] bg-[#161822] text-[#D4D4D2] hover:bg-[#222432] hover:border-[#383C4E] hover:text-white active:bg-white active:text-black active:border-white transition-all inline-flex items-center gap-1.5"
                 >
                   Details
                   <ArrowRight size={13} />

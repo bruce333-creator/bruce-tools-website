@@ -7,14 +7,14 @@ import DownloadWithSupport from "@/components/DownloadWithSupport";
 
 export default function ProductDetailView({ product }: { product: Product }) {
   return (
-    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-28 pb-32 px-6">
-      <div className="max-w-5xl mx-auto space-y-14">
+    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-24 pb-16 px-6">
+      <div className="max-w-5xl mx-auto space-y-8">
 
         {/* Breadcrumb */}
         <div>
           <Link 
             href="/#products"
-            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground active:text-white transition-colors"
           >
             <ArrowLeft size={13} />
             <span>All plugins</span>
@@ -24,29 +24,29 @@ export default function ProductDetailView({ product }: { product: Product }) {
         {/* --------------------------------------------------
             HERO: Title, Metadata, Direct Download
             -------------------------------------------------- */}
-        <section className="space-y-5">
+        <section className="space-y-3.5">
           <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="px-2.5 py-1 rounded-md bg-white/[0.05] border border-white/10 text-accent font-medium backdrop-blur-sm">
+            <span className="px-2.5 py-0.5 rounded-md bg-[#161822] border border-[#232530] text-accent font-medium">
               {product.version}
             </span>
-            <span className="px-2.5 py-1 rounded-md bg-white/[0.05] border border-white/10 text-text-secondary backdrop-blur-sm">
+            <span className="px-2.5 py-0.5 rounded-md bg-[#161822] border border-[#232530] text-text-secondary">
               {product.compatibility}
             </span>
-            <span className="px-2.5 py-1 rounded-md bg-white/[0.05] border border-white/10 text-text-muted backdrop-blur-sm">
+            <span className="px-2.5 py-0.5 rounded-md bg-[#161822] border border-[#232530] text-text-muted">
               {product.platforms}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-medium tracking-tight text-foreground leading-[1.15]">
+          <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-foreground leading-[1.15]">
             {product.name}
           </h1>
 
-          <p className="text-base sm:text-lg text-text-secondary max-w-3xl leading-relaxed">
+          <p className="text-sm sm:text-base text-text-secondary max-w-3xl leading-relaxed">
             {product.shortDescription}
           </p>
 
           {/* Download & Documentation Harmonized Group */}
-          <div className="pt-2">
+          <div className="pt-1">
             <DownloadWithSupport
               downloadUrl={product.downloadUrl}
               isDownloadReady={product.isDownloadReady}
@@ -55,7 +55,7 @@ export default function ProductDetailView({ product }: { product: Product }) {
               secondaryAction={
                 <Link
                   href={product.docsPath}
-                  className="px-5 py-2.5 rounded-lg border border-white/10 bg-white/[0.05] hover:bg-white/[0.1] hover:border-white/20 hover:text-white text-sm font-medium text-foreground transition-all inline-flex items-center justify-center gap-2 backdrop-blur-md"
+                  className="px-5 py-2.5 rounded-lg border border-[#2A2C38] bg-[#161822] hover:bg-[#222432] hover:border-[#383C4E] hover:text-white active:bg-white active:text-black active:border-white text-sm font-medium text-[#EDEDEC] transition-all inline-flex items-center justify-center gap-2"
                 >
                   <BookOpen size={15} />
                   Documentation
@@ -69,13 +69,13 @@ export default function ProductDetailView({ product }: { product: Product }) {
             MEDIA / UI SHOWCASE
             -------------------------------------------------- */}
         {(product.embeddedVideo || product.uiScreenshot || product.heroImage) && (
-          <section className="rounded-2xl border border-white/10 bg-[#14151f]/50 backdrop-blur-md overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.36)]">
+          <section className="rounded-2xl border border-[#232530] bg-[#101117] overflow-hidden shadow-md">
             {product.embeddedVideo ? (
-              <div className="w-full aspect-video bg-[#0d0e14] relative">
+              <div className="w-full aspect-video bg-[#090A0D] relative">
                 <LazyVideo src={product.embeddedVideo} />
               </div>
             ) : (
-              <div className="w-full aspect-[16/10] bg-[#0d0e14] relative">
+              <div className="w-full aspect-[16/10] bg-[#090A0D] relative">
                 <Image
                   src={product.uiScreenshot || product.heroImage}
                   alt={`${product.name} interface`}
@@ -92,16 +92,16 @@ export default function ProductDetailView({ product }: { product: Product }) {
             FEATURES & REQUIREMENTS
             -------------------------------------------------- */}
         {product.features.length > 0 ? (
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Main Features */}
-            <div className="md:col-span-2 space-y-4">
-              <h2 className="text-xl sm:text-2xl font-medium text-foreground tracking-tight">
+            <div className="md:col-span-2 space-y-3">
+              <h2 className="text-lg sm:text-xl font-medium text-foreground tracking-tight">
                 What it does
               </h2>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {product.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-text-secondary leading-relaxed">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0 shadow-[0_0_8px_rgba(37,99,235,0.6)]" />
+                  <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-text-secondary leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 shrink-0 shadow-[0_0_6px_rgba(37,99,235,0.6)]" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -109,11 +109,11 @@ export default function ProductDetailView({ product }: { product: Product }) {
             </div>
 
             {/* Technical Requirements */}
-            <div className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-medium text-foreground tracking-tight">
+            <div className="space-y-3">
+              <h2 className="text-lg sm:text-xl font-medium text-foreground tracking-tight">
                 Requirements
               </h2>
-              <ul className="space-y-2.5">
+              <ul className="space-y-2">
                 {product.technicalDetails.map((req, i) => (
                   <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-text-secondary leading-relaxed">
                     <Check size={14} className="text-accent mt-0.5 shrink-0" />
@@ -123,7 +123,7 @@ export default function ProductDetailView({ product }: { product: Product }) {
               </ul>
 
               {/* Quick Install */}
-              <div className="rounded-xl border border-white/10 bg-[#161822]/60 backdrop-blur-md p-4 space-y-1.5 mt-5 shadow-sm">
+              <div className="rounded-xl border border-[#232530] bg-[#12131A] p-3.5 space-y-1 mt-3 shadow-sm">
                 <div className="flex items-center gap-2 text-xs text-foreground font-medium">
                   <Terminal size={13} className="text-accent" />
                   <span>Installation</span>
@@ -135,18 +135,18 @@ export default function ProductDetailView({ product }: { product: Product }) {
             </div>
           </section>
         ) : (
-          <section className="rounded-2xl border border-white/10 bg-[#161822]/60 backdrop-blur-md p-12 text-center space-y-2 shadow-sm">
-            <h2 className="text-xl font-medium text-foreground">Coming Soon</h2>
-            <p className="text-sm text-text-secondary">ArNode for Autodesk Maya is currently in development.</p>
+          <section className="rounded-2xl border border-[#232530] bg-[#12131A] p-8 text-center space-y-2 shadow-sm">
+            <h2 className="text-lg font-medium text-foreground">Coming Soon</h2>
+            <p className="text-xs sm:text-sm text-text-secondary">ArNode for Autodesk Maya is currently in development.</p>
           </section>
         )}
 
         {/* --------------------------------------------------
             FOOTER CTA (No gray divider line, harmonized buttons)
             -------------------------------------------------- */}
-        <section className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <section className="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <h3 className="text-lg text-foreground">
+            <h3 className="text-base sm:text-lg text-foreground font-medium">
               {product.name}
             </h3>
             <p className="text-xs text-text-secondary mt-0.5">
@@ -162,7 +162,7 @@ export default function ProductDetailView({ product }: { product: Product }) {
               secondaryAction={
                 <Link
                   href={product.docsPath}
-                  className="px-3.5 py-1.5 rounded-lg border border-white/10 bg-white/[0.05] hover:bg-white/[0.1] hover:border-white/20 hover:text-white text-xs font-medium text-foreground transition-all inline-flex items-center justify-center gap-1.5 backdrop-blur-md"
+                  className="px-3.5 py-1.5 rounded-lg border border-[#2A2C38] bg-[#161822] hover:bg-[#222432] hover:border-[#383C4E] hover:text-white active:bg-white active:text-black active:border-white text-xs font-medium text-[#EDEDEC] transition-all inline-flex items-center justify-center gap-1.5"
                 >
                   <BookOpen size={13} />
                   Documentation

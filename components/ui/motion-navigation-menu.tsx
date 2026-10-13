@@ -708,7 +708,7 @@ function MotionNavigationMenuViewport({
         }}
         transition={context?.spring}
         className={cn(
-          "bg-background text-popover-foreground relative overflow-hidden rounded-md border shadow backdrop-blur-md",
+          "bg-background text-popover-foreground relative overflow-hidden rounded-md border shadow",
           className,
         )}
       >
