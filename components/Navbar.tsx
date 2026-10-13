@@ -29,7 +29,7 @@ export default function Navbar() {
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${
         scrolled 
-          ? "bg-[#090A0D]/95 border-b border-[#232530] py-2.5 shadow-lg" 
+          ? "bg-[#090A0D]/95 border-b border-white/[0.04] py-2.5 shadow-lg" 
           : "bg-transparent border-b border-transparent py-3"
       }`}
     >
@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="hidden md:flex flex-1 items-center justify-center">
           <MotionNavigationMenu
             viewport={true}
-            viewportClassName="bg-[#121318] border border-[#232530] rounded-xl shadow-2xl"
+            viewportClassName="bg-[#101116] border border-white/[0.05] rounded-xl shadow-2xl"
           >
             <MotionNavigationMenuList highlightClassName="bg-[#1D1F2B] rounded-lg">
               {/* Products Dropdown */}
@@ -112,7 +112,7 @@ export default function Navbar() {
             href={KOFI_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg border border-[#2A2C38] bg-[#161822] text-xs uppercase tracking-wider font-medium text-[#EDEDEC] hover:bg-[#222432] hover:border-[#383C4E] hover:text-white active:bg-white active:text-black active:border-white transition-all inline-flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-lg border border-white/[0.06] bg-white/[0.03] hover:bg-white/[0.07] hover:border-white/[0.12] text-xs uppercase tracking-wider font-medium text-[#EDEDEC] hover:text-white active:bg-white active:text-black active:border-white transition-all inline-flex items-center gap-1.5"
           >
             <span>SUPPORT</span>
             <ArrowUpRight size={12} className="opacity-70" />
@@ -121,7 +121,7 @@ export default function Navbar() {
             href="https://github.com/bruce333-creator"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg border border-[#2A2C38] bg-[#161822] text-xs uppercase tracking-wider font-medium text-[#D4D4D2] hover:bg-[#222432] hover:border-[#383C4E] hover:text-white active:bg-white active:text-black active:border-white transition-all inline-flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-lg border border-white/[0.06] bg-white/[0.03] hover:bg-white/[0.07] hover:border-white/[0.12] text-xs uppercase tracking-wider font-medium text-[#D4D4D2] hover:text-white active:bg-white active:text-black active:border-white transition-all inline-flex items-center gap-1.5"
           >
             <span>GITHUB</span>
             <ArrowUpRight size={12} className="opacity-70" />
@@ -133,7 +133,7 @@ export default function Navbar() {
           type="button"
           aria-label="Toggle navigation menu"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden px-2.5 py-1.5 rounded-lg border border-[#2A2C38] bg-[#161822] text-[#EDEDEC] hover:bg-[#222432] active:bg-white active:text-black transition-all"
+          className="md:hidden px-2.5 py-1.5 rounded-lg border border-white/[0.06] bg-white/[0.03] text-[#EDEDEC] hover:bg-white/[0.07] active:bg-white active:text-black transition-all"
         >
           {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
         </button>

@@ -44,7 +44,7 @@ export default function DownloadWithSupport({
             Download
           </a>
         ) : (
-          <span className={`${buttonSizeClass} rounded-lg border border-[#232530] bg-[#121318] text-text-muted cursor-not-allowed inline-flex items-center justify-center gap-2`}>
+          <span className={`${buttonSizeClass} rounded-lg border border-white/[0.04] bg-white/[0.02] text-text-muted cursor-not-allowed inline-flex items-center justify-center gap-2`}>
             <Download size={size === "lg" ? 15 : 13} className="opacity-40" />
             Coming soon
           </span>
@@ -71,7 +71,7 @@ export default function DownloadWithSupport({
 
       {/* Post-download message (after user clicks Download) */}
       {downloadTriggered && (
-        <div className="p-3 rounded-xl border border-[#2A2C38] bg-[#14151D] text-xs text-text-secondary flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-md animate-fadeIn">
+        <div className="p-3 rounded-xl border border-white/[0.06] bg-[#12131A] text-xs text-text-secondary flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
           <div className="flex items-start sm:items-center gap-2 text-foreground/90">
             <Heart size={14} className="text-[#3B82F6] shrink-0 mt-0.5 sm:mt-0" />
             <span>
@@ -83,7 +83,7 @@ export default function DownloadWithSupport({
               href={KOFI_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-lg border border-[#2A2C38] bg-[#1C1E2B] hover:bg-[#252839] hover:border-[#383C4E] text-foreground hover:text-white active:bg-white active:text-black active:border-white transition-all inline-flex items-center gap-1 font-medium whitespace-nowrap"
+              className="px-3 py-1.5 rounded-lg border border-white/[0.06] bg-white/[0.03] hover:bg-white/[0.07] hover:border-white/[0.12] text-foreground hover:text-white active:bg-white active:text-black active:border-white transition-all inline-flex items-center gap-1 font-medium whitespace-nowrap"
             >
               <span>SUPPORT</span>
               <ArrowUpRight size={11} className="opacity-70" />

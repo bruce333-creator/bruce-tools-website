@@ -13,7 +13,7 @@ export default function Privacy() {
         <div>
           <Link 
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-text-secondary hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
           >
             <ArrowLeft size={13} />
             <span>Home</span>
@@ -21,23 +21,23 @@ export default function Privacy() {
         </div>
 
         <div>
-          <h1 className="font-serif text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-2">Privacy Policy</h1>
-          <p className="text-xs font-mono text-text-muted">Effective Date: 2026</p>
+          <h1 className="text-3xl sm:text-4xl font-normal text-foreground tracking-tight mb-2">Privacy Policy</h1>
+          <p className="text-xs text-text-muted">Effective Date: 2026</p>
         </div>
         
-        <div className="space-y-8 text-sm text-text-secondary leading-relaxed font-sans pt-4">
+        <div className="space-y-8 text-sm text-text-secondary leading-relaxed pt-4">
           <section className="space-y-2">
-            <h2 className="font-serif text-lg font-medium text-foreground">1. No User Data Collection</h2>
+            <h2 className="text-lg font-medium text-foreground">1. No User Data Collection</h2>
             <p>EF Tools plugins do not contain telemetry, tracking, background networking calls, or account authentication. They execute purely locally inside your local Autodesk Maya Python environment.</p>
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-lg font-medium text-foreground">2. Direct Downloads</h2>
+            <h2 className="text-lg font-medium text-foreground">2. Direct Downloads</h2>
             <p>All tool files are hosted directly on GitHub Releases. When downloading, GitHub operates according to its own privacy policy.</p>
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-lg font-medium text-foreground">3. Website Analytics</h2>
+            <h2 className="text-lg font-medium text-foreground">3. Website Analytics</h2>
             <p>This static website does not use tracking cookies or persistent advertising identifiers.</p>
           </section>
         </div>

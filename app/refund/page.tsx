@@ -13,7 +13,7 @@ export default function Refund() {
         <div>
           <Link 
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-text-secondary hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
           >
             <ArrowLeft size={13} />
             <span>Home</span>

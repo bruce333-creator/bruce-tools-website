@@ -13,7 +13,7 @@ export default function Terms() {
         <div>
           <Link 
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-text-secondary hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
           >
             <ArrowLeft size={13} />
             <span>Home</span>
@@ -21,18 +21,18 @@ export default function Terms() {
         </div>
 
         <div>
-          <h1 className="font-serif text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-2">Terms of Service</h1>
-          <p className="text-xs font-mono text-text-muted">Effective Date: 2026</p>
+          <h1 className="text-3xl sm:text-4xl font-normal text-foreground tracking-tight mb-2">Terms of Service</h1>
+          <p className="text-xs text-text-muted">Effective Date: 2026</p>
         </div>
         
-        <div className="space-y-8 text-sm text-text-secondary leading-relaxed font-sans pt-4">
+        <div className="space-y-8 text-sm text-text-secondary leading-relaxed pt-4">
           <section className="space-y-2">
-            <h2 className="font-serif text-lg font-medium text-foreground">1. Non-Exclusive License</h2>
+            <h2 className="text-lg font-medium text-foreground">1. Non-Exclusive License</h2>
             <p>By downloading tools from EF Tools, you are granted a non-exclusive, non-transferable license to use the scripts for personal and commercial projects in Autodesk Maya.</p>
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-lg font-medium text-foreground">2. Usage Restrictions</h2>
+            <h2 className="text-lg font-medium text-foreground">2. Usage Restrictions</h2>
             <ul className="list-disc pl-5 space-y-1.5 text-text-secondary">
               <li>No commercial redistribution or resale of the script files.</li>
               <li>No unauthorized claiming of authorship of the source scripts.</li>
@@ -41,7 +41,7 @@ export default function Terms() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-serif text-lg font-medium text-foreground">3. Disclaimer of Warranty</h2>
+            <h2 className="text-lg font-medium text-foreground">3. Disclaimer of Warranty</h2>
             <p>The software is provided &quot;as is&quot;, without warranty of any kind. EF Tools and its author (Enzo Freminet) shall not be held liable for any claim, damages, scene corruption or downtime arising out of the use of these tools.</p>
             <p className="text-xs text-text-muted pt-2">Autodesk Maya and RenderMan are trademarks of their respective owners. EF Tools is an independent project and is not affiliated with Autodesk, Pixar, or NVIDIA.</p>
           </section>

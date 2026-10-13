@@ -25,7 +25,7 @@ export const products: Product[] = [
     name: "Rman Node",
     alternateName: "RenderMan Node Wrangler",
     version: "v2.0",
-    shortDescription: "Automate PBR shader creation, 15 calibrated physical presets, texture HUD inspection, and 100% automated displacement for Pixar's RenderMan in Maya.",
+    shortDescription: "Automates PBR shader creation, displacement chains, and HUD inspection for RenderMan in Maya.",
     compatibility: "Maya 2022+ · RenderMan 24/25/26+ · Python 3",
     platforms: "Windows & macOS",
     downloadUrl: "https://github.com/bruce333-creator/Rman_Node/releases/download/maj/RMNW.zip",
@@ -35,13 +35,12 @@ export const products: Product[] = [
     detailsPath: "/products/renderman-node-wrangler",
     docsPath: "/docs/renderman-node-wrangler",
     features: [
-      "No prior PxrSurface needed: drop textures and click Build Material to create shader, shading group, and clean nodal network",
-      "Ambient Occlusion auto-wiring: PxrBlend Multiply integration with Base Color",
-      "100% automated displacement chain: PxrTexture -> PxrDispTransform (Centered) -> PxrDisplace (calibrated dispAmount 0.1)",
-      "15 calibrated PBR presets: Metal, Plastic, Glass, Skin, Fabric, Rubber, Wood, Stone, Leaves, Car Paint, etc.",
-      "Snug Texture HUD (Shift+V / MMB): instant texture preview, live PxrRemap bounds feedback, and pin mode",
-      "Viewport 2.0 clean preview: neutral Lambert viewport fallback without green/black shading bugs",
-      "Standalone installer: Drag-and-drop Installer_Rman_Node.py creates shelf button with official icon"
+      "One-click PBR material and nodal network creation from texture sets",
+      "Automated displacement setup and live texture HUD preview (Shift+V)",
+      "15 calibrated PBR presets: Metal, Glass, Skin, Car Paint, and more",
+      "Snug Texture HUD with live PxrRemap bounds feedback",
+      "Neutral Lambert viewport fallback without shading artifacts",
+      "Standalone drag-and-drop installer for Maya shelf"
     ],
     technicalDetails: [
       "Autodesk Maya 2022, 2023, 2024, 2025, 2026+",
@@ -55,7 +54,7 @@ export const products: Product[] = [
     id: "ultimate-ref-tool",
     name: "Ultimate Ref Tool",
     version: "v2.1",
-    shortDescription: "Fast reference image plane importer with automatic camera axis detection, alpha adjustment, and locked display layer hierarchy.",
+    shortDescription: "Imports and sets up reference image planes with automatic camera axis detection and locked display layers.",
     compatibility: "Maya 2022+ (incl. 2025+)",
     platforms: "Windows & macOS",
     downloadUrl: "https://github.com/bruce333-creator/Ultimate_Ref_Tool/releases/download/maj/ultimate_ref_tool_v21.py",
@@ -65,11 +64,11 @@ export const products: Product[] = [
     detailsPath: "/products/ultimate-ref-tool",
     docsPath: "/docs/ultimate-ref-tool",
     features: [
-      "Automatic Axis Detection: Drag & drop images with auto-detection of Front, Side, and Top views",
-      "Manual View Force: Dedicated Add Front / Side / Top buttons for atypical file names",
-      "Automated Setup: 0.5 Alpha Gain, x100 scale compensation for scenes in meters, and locked transforms",
-      "Clean Scene Hierarchy: Grouped in REF_IMAGES and locked on a non-selectable REF_LAYER",
-      "Global Reference Controls: Instant toggle visibility and one-click clean scene purge"
+      "Automatic Front, Side, and Top axis detection on drag-and-drop",
+      "Clean scene hierarchy with locked display layer and 0.5 alpha gain",
+      "Manual axis override buttons for atypical image names",
+      "One-click visibility toggle and complete reference scene purge",
+      "Adaptive PySide2 and PySide6 support across Maya 2022 to 2026"
     ],
     technicalDetails: [
       "Autodesk Maya 2022, 2023, 2024, 2025+",

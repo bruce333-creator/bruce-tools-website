@@ -13,7 +13,7 @@ export default function License() {
         <div>
           <Link 
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-text-secondary hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
           >
             <ArrowLeft size={13} />
             <span>Home</span>
@@ -21,13 +21,13 @@ export default function License() {
         </div>
 
         <div>
-          <h1 className="font-serif text-3xl sm:text-4xl font-medium text-foreground tracking-tight mb-2">Software License</h1>
-          <p className="text-xs font-mono text-text-muted">Author: Enzo Freminet (Copyright © 2026)</p>
+          <h1 className="text-3xl sm:text-4xl font-normal text-foreground tracking-tight mb-2">Software License</h1>
+          <p className="text-xs text-text-muted">Author: Enzo Freminet (Copyright © 2026)</p>
         </div>
         
-        <div className="space-y-8 text-sm text-text-secondary leading-relaxed font-sans pt-4">
+        <div className="space-y-8 text-sm text-text-secondary leading-relaxed pt-4">
           <section className="space-y-3">
-            <h2 className="font-serif text-lg font-medium text-foreground">Permitted Use (Users MAY):</h2>
+            <h2 className="text-lg font-medium text-foreground">Permitted Use (Users MAY):</h2>
             <ul className="list-disc pl-5 space-y-2 text-text-secondary">
               <li>Install and use the tools on personal and studio workstations.</li>
               <li>Use the tools for commercial production work and render output.</li>
@@ -37,7 +37,7 @@ export default function License() {
           </section>
 
           <section className="space-y-3">
-            <h2 className="font-serif text-lg font-medium text-foreground">Restrictions (Users MAY NOT):</h2>
+            <h2 className="text-lg font-medium text-foreground">Restrictions (Users MAY NOT):</h2>
             <ul className="list-disc pl-5 space-y-2 text-text-secondary">
               <li>Redistribute or resell the software files to third parties.</li>
               <li>Upload modified versions as competing standalone packages without consent.</li>
