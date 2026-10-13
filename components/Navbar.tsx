@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { products } from "@/config/products";
+import { products, KOFI_URL } from "@/config/products";
 import {
   MotionNavigationMenu,
   MotionNavigationMenuContent,
@@ -106,13 +106,22 @@ export default function Navbar() {
           </MotionNavigationMenu>
         </div>
 
-        {/* Right: GitHub Direct Link */}
-        <div className="hidden md:flex items-center justify-end min-w-[120px]">
+        {/* Right: Support & GitHub */}
+        <div className="hidden md:flex items-center justify-end gap-2 min-w-[200px]">
+          <a
+            href={KOFI_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-3 py-1.5 rounded-lg border border-[#333331] bg-[#1E1E1D] text-xs font-medium text-[#EDEDEC] hover:bg-[#282827] hover:border-[#424240] hover:text-white transition-colors inline-flex items-center gap-1.5"
+          >
+            <span>Support EF Tools</span>
+            <ArrowUpRight size={12} className="text-text-muted" />
+          </a>
           <a
             href="https://github.com/bruce333-creator"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-1.5 rounded-lg border border-[#333331] bg-[#222221] text-xs uppercase tracking-wider text-[#D4D4D2] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white transition-colors inline-flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-lg border border-[#333331] bg-[#222221] text-xs uppercase tracking-wider text-[#D4D4D2] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white transition-colors inline-flex items-center gap-1.5"
           >
             <span>GITHUB</span>
             <ArrowUpRight size={12} className="text-text-muted" />
@@ -173,6 +182,16 @@ export default function Navbar() {
           >
             CONTACT
           </Link>
+          <a
+            href={KOFI_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
+            className="py-2 px-3 rounded-lg border border-[#333331] bg-[#1E1E1D] text-xs tracking-wider text-[#EDEDEC] hover:bg-[#282827] transition-colors uppercase inline-flex items-center justify-between"
+          >
+            <span>SUPPORT EF TOOLS</span>
+            <ArrowUpRight size={13} className="text-text-muted" />
+          </a>
           <a
             href="https://github.com/bruce333-creator"
             target="_blank"

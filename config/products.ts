@@ -17,6 +17,8 @@ export type Product = {
   embeddedVideo?: string;
 };
 
+export const KOFI_URL = "https://ko-fi.com/bruce33";
+
 export const products: Product[] = [
   {
     id: "renderman-node-wrangler",

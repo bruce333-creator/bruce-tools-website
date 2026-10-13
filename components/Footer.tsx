@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { products } from "@/config/products";
+import { products, KOFI_URL } from "@/config/products";
 
 export default function Footer() {
   return (
@@ -36,6 +36,14 @@ export default function Footer() {
             <Link href="/docs/renderman-node-wrangler" className="hover:text-foreground transition-colors">Documentation</Link>
             <Link href="/about" className="hover:text-foreground transition-colors">About</Link>
             <Link href="/contact" className="hover:text-foreground transition-colors">Contact</Link>
+            <a 
+              href={KOFI_URL} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-foreground transition-colors"
+            >
+              Support the project
+            </a>
             <a 
               href="https://github.com/bruce333-creator" 
               target="_blank" 

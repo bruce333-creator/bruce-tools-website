@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Download, ArrowLeft, BookOpen, Check, Terminal } from "lucide-react";
 import { Product } from "@/config/products";
 import LazyVideo from "@/components/LazyVideo";
+import DownloadWithSupport from "@/components/DownloadWithSupport";
 
 export default function ProductDetailView({ product }: { product: Product }) {
   return (
@@ -50,30 +51,23 @@ export default function ProductDetailView({ product }: { product: Product }) {
           </p>
 
           {/* Download & Docs */}
-          <div className="pt-2 flex flex-wrap items-center gap-3">
-            {product.isDownloadReady ? (
-              <a
-                href={product.downloadUrl}
-                download
-                className="px-5 py-2.5 rounded-lg bg-accent text-white hover:bg-accent-hover text-sm font-medium transition-colors inline-flex items-center gap-2"
-              >
-                <Download size={15} />
-                Download
-              </a>
-            ) : (
-              <span className="px-4 py-2 rounded-lg border border-border bg-surface-secondary/40 text-text-muted text-xs cursor-not-allowed inline-flex items-center gap-2">
-                <Download size={14} className="opacity-40" />
-                Coming soon
-              </span>
-            )}
+          <div className="pt-2 flex flex-col gap-3">
+            <div className="flex flex-wrap items-center gap-3">
+              <DownloadWithSupport
+                downloadUrl={product.downloadUrl}
+                isDownloadReady={product.isDownloadReady}
+                size="lg"
+                showPreSupportNote={true}
+              />
 
-            <Link
-              href={product.docsPath}
-              className="px-4 py-2.5 rounded-lg border border-[#333331] bg-[#222221] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white text-sm text-[#D4D4D2] transition-colors inline-flex items-center gap-2"
-            >
-              <BookOpen size={14} />
-              Documentation
-            </Link>
+              <Link
+                href={product.docsPath}
+                className="px-4 py-2.5 rounded-lg border border-[#333331] bg-[#222221] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white text-sm text-[#D4D4D2] transition-colors inline-flex items-center gap-2 self-start"
+              >
+                <BookOpen size={14} />
+                Documentation
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -166,25 +160,16 @@ export default function ProductDetailView({ product }: { product: Product }) {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
-            {product.isDownloadReady ? (
-              <a
-                href={product.downloadUrl}
-                download
-                className="px-4 py-2 rounded-lg bg-accent text-white hover:bg-accent-hover text-xs font-medium transition-colors inline-flex items-center gap-2"
-              >
-                <Download size={13} />
-                Download
-              </a>
-            ) : (
-              <span className="text-xs text-text-muted">
-                Coming soon
-              </span>
-            )}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            <DownloadWithSupport
+              downloadUrl={product.downloadUrl}
+              isDownloadReady={product.isDownloadReady}
+              size="sm"
+            />
 
             <Link
               href={product.docsPath}
-              className="px-3.5 py-2 rounded-lg border border-[#333331] bg-[#222221] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white text-xs text-[#D4D4D2] transition-colors"
+              className="px-3.5 py-1.5 rounded-lg border border-[#333331] bg-[#222221] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white text-xs text-[#D4D4D2] transition-colors self-start"
             >
               Documentation
             </Link>

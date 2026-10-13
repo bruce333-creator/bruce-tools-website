@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Download, ArrowRight } from "lucide-react";
-import { products } from "@/config/products";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { products, KOFI_URL } from "@/config/products";
 import LazyVideo from "@/components/LazyVideo";
+import DownloadWithSupport from "@/components/DownloadWithSupport";
 
 export default function Home() {
   return (
@@ -34,6 +35,20 @@ export default function Home() {
             >
               Documentation
             </Link>
+          </div>
+
+          {/* Support callout banner */}
+          <div className="mt-8 p-3.5 sm:p-4 rounded-xl border border-border bg-[#181817] max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-text-secondary text-center sm:text-left">
+            <span>All EF Tools plugins are free. If you find them useful, consider supporting their development.</span>
+            <a
+              href={KOFI_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 px-3 py-1.5 rounded-lg border border-[#333331] bg-[#222221] hover:bg-[#2C2C2B] hover:border-[#424240] text-foreground hover:text-white transition-colors inline-flex items-center gap-1.5 font-medium whitespace-nowrap"
+            >
+              <span>Support EF Tools</span>
+              <ArrowUpRight size={12} className="text-text-muted" />
+            </a>
           </div>
         </section>
 
@@ -95,30 +110,21 @@ export default function Home() {
                     </div>
 
                     {/* Actions - No border-t line, No Docs link */}
-                    <div className="flex flex-wrap items-center gap-3 text-xs pt-1">
-                      {product.isDownloadReady ? (
-                        <a
-                          href={product.downloadUrl}
-                          download
-                          className="px-4 py-2 rounded-lg bg-accent text-white hover:bg-accent-hover transition-colors font-medium flex items-center gap-2"
-                        >
-                          <Download size={14} />
-                          Download
-                        </a>
-                      ) : (
-                        <span className="px-4 py-2 rounded-lg border border-border bg-surface-secondary/40 text-text-muted cursor-not-allowed inline-flex items-center gap-2">
-                          <Download size={14} className="opacity-40" />
-                          Coming soon
-                        </span>
-                      )}
+                    <div className="flex flex-col gap-2 pt-1">
+                      <div className="flex flex-wrap items-center gap-3 text-xs">
+                        <DownloadWithSupport
+                          downloadUrl={product.downloadUrl}
+                          isDownloadReady={product.isDownloadReady}
+                        />
 
-                      <Link
-                        href={product.detailsPath}
-                        className="px-3.5 py-2 rounded-lg border border-[#333331] bg-[#222221] text-[#D4D4D2] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white transition-colors inline-flex items-center gap-1.5"
-                      >
-                        Details
-                        <ArrowRight size={13} />
-                      </Link>
+                        <Link
+                          href={product.detailsPath}
+                          className="px-3.5 py-2 rounded-lg border border-[#333331] bg-[#222221] text-[#D4D4D2] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white transition-colors inline-flex items-center gap-1.5"
+                        >
+                          Details
+                          <ArrowRight size={13} />
+                        </Link>
+                      </div>
                     </div>
                   </div>
 
