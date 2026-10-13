@@ -50,7 +50,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#141413] text-[#EDEDEC] pt-28 pb-32 px-6">
+    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-28 pb-32 px-6">
       <div className="max-w-2xl mx-auto space-y-12">
         <div>
           <Link 
@@ -71,10 +71,10 @@ export default function ContactPage() {
           </p>
         </section>
 
-        <div className="rounded-2xl border border-border bg-surface p-6 sm:p-8">
+        <div className="rounded-2xl border border-white/10 bg-[#14151f]/50 backdrop-blur-md p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
           {status === "success" ? (
             <div className="flex flex-col items-center justify-center py-10 text-center space-y-4">
-              <div className="w-12 h-12 bg-surface-secondary border border-border text-accent rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-white/[0.05] border border-white/10 text-accent rounded-full flex items-center justify-center">
                 <CheckCircle size={24} />
               </div>
               <h2 className="text-xl font-medium text-foreground">Message Sent</h2>
@@ -83,7 +83,7 @@ export default function ContactPage() {
               </p>
               <button
                 onClick={() => setStatus("idle")}
-                className="mt-4 px-4 py-2 rounded-lg border border-border hover:bg-surface-secondary text-xs text-text-secondary hover:text-foreground transition-colors"
+                className="mt-4 px-4 py-2 rounded-lg border border-white/10 hover:bg-white/[0.08] text-xs text-text-secondary hover:text-foreground transition-all"
               >
                 Send another message
               </button>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-[#141413] border border-border rounded-lg py-2.5 pl-10 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-border-hover transition-colors"
+                    className="w-full bg-white/[0.04] border border-white/10 rounded-lg py-2.5 pl-10 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors"
                     placeholder="you@studio.com"
                     disabled={isSubmitting}
                   />
@@ -132,7 +132,7 @@ export default function ContactPage() {
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full bg-[#141413] border border-border rounded-lg py-2.5 pl-10 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-border-hover transition-colors"
+                    className="w-full bg-white/[0.04] border border-white/10 rounded-lg py-2.5 pl-10 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors"
                     placeholder="e.g. RenderMan Node Wrangler issue on Maya 2024"
                     disabled={isSubmitting}
                   />
@@ -149,7 +149,7 @@ export default function ContactPage() {
                   rows={5}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-[#141413] border border-border rounded-lg p-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-border-hover transition-colors resize-none"
+                  className="w-full bg-white/[0.04] border border-white/10 rounded-lg p-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors resize-none"
                   placeholder="Describe your question or reproduction steps..."
                   disabled={isSubmitting}
                 />

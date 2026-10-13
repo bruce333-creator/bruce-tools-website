@@ -6,6 +6,7 @@ import remarkBreaks from "remark-breaks";
 import { products, getProductById } from "@/config/products";
 import { notFound } from "next/navigation";
 import { Download } from "lucide-react";
+import DownloadWithSupport from "@/components/DownloadWithSupport";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
@@ -53,8 +54,8 @@ export default async function DocPage({ params }: { params: Promise<{ plugin: st
 
   return (
     <div className="space-y-6">
-      {/* Doc Header */}
-      <div className="border-b border-border pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      {/* Doc Header (No border-b line) */}
+      <div className="pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 text-xs text-accent mb-1">
             <span>{product.version}</span>
@@ -67,14 +68,11 @@ export default async function DocPage({ params }: { params: Promise<{ plugin: st
         </div>
 
         {product.isDownloadReady && (
-          <a
-            href={product.downloadUrl}
-            download
-            className="px-4 py-2 rounded-lg bg-accent text-white hover:bg-accent-hover text-xs font-medium transition-colors inline-flex items-center gap-2 self-start sm:self-auto"
-          >
-            <Download size={13} />
-            Download
-          </a>
+          <DownloadWithSupport
+            downloadUrl={product.downloadUrl}
+            isDownloadReady={product.isDownloadReady}
+            size="sm"
+          />
         )}
       </div>
 

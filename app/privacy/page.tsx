@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <main className="min-h-screen bg-[#141413] text-[#EDEDEC] pt-28 pb-32 px-6">
+    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-28 pb-32 px-6">
       <div className="max-w-3xl mx-auto space-y-12">
         <div>
           <Link 
@@ -25,7 +25,7 @@ export default function Privacy() {
           <p className="text-xs font-mono text-text-muted">Effective Date: 2026</p>
         </div>
         
-        <div className="space-y-8 text-sm text-text-secondary leading-relaxed font-sans border-t border-border pt-8">
+        <div className="space-y-8 text-sm text-text-secondary leading-relaxed font-sans pt-4">
           <section className="space-y-2">
             <h2 className="font-serif text-lg font-medium text-foreground">1. No User Data Collection</h2>
             <p>EF Tools plugins do not contain telemetry, tracking, background networking calls, or account authentication. They execute purely locally inside your local Autodesk Maya Python environment.</p>

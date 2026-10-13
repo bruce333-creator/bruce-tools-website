@@ -4,18 +4,18 @@
 
 @layer base {
   :root {
-    --background: #141413;
-    --surface: #1B1B1A;
-    --surface-secondary: #222221;
-    --surface-tertiary: #282827;
+    --background: #090A0F;
+    --surface: rgba(20, 21, 31, 0.55);
+    --surface-secondary: rgba(24, 26, 38, 0.65);
+    --surface-tertiary: rgba(30, 33, 48, 0.75);
     --foreground: #EDEDEC;
-    --text-secondary: #9C9C98;
-    --text-muted: #6B6B67;
-    --border: #282826;
-    --border-hover: #3C3C3A;
+    --text-secondary: #A0A09C;
+    --text-muted: #6E6E6A;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.18);
     --accent: #2563EB;
     --accent-hover: #3B82F6;
-    --accent-subtle: rgba(37, 99, 235, 0.12);
+    --accent-subtle: rgba(37, 99, 235, 0.15);
   }
 }
 

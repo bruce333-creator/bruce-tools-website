@@ -3,7 +3,7 @@ import { products, KOFI_URL } from "@/config/products";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-border bg-[#141413] text-text-secondary pt-14 pb-12 px-6 text-sm">
+    <footer className="w-full border-t border-white/10 bg-[#07080D]/70 backdrop-blur-md text-text-secondary pt-14 pb-12 px-6 text-sm">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-10">
         <div className="max-w-sm space-y-2">
           <Link href="/" className="text-base font-medium text-foreground tracking-tight">

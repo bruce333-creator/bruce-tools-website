@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NoiseDarkBlueGradientWithSquares from "@/components/ui/noise-dark-blue-gradient-with-squares";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,9 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-accent/20 selection:text-foreground`}>
+      <body className={`${inter.className} antialiased bg-background text-foreground min-h-screen flex flex-col selection:bg-accent/20 selection:text-foreground relative`}>
+        <NoiseDarkBlueGradientWithSquares />
         <Navbar />
-        <div className="flex-1">
+        <div className="flex-1 relative z-10">
           {children}
         </div>
         <Footer />

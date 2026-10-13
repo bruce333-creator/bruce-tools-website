@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Refund() {
   return (
-    <main className="min-h-screen bg-[#141413] text-[#EDEDEC] pt-28 pb-32 px-6">
+    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-28 pb-32 px-6">
       <div className="max-w-3xl mx-auto space-y-12">
         <div>
           <Link 
@@ -25,7 +25,7 @@ export default function Refund() {
           <p className="text-xs text-text-muted">Effective Date: 2026</p>
         </div>
         
-        <div className="space-y-8 text-sm text-text-secondary leading-relaxed border-t border-border pt-8">
+        <div className="space-y-8 text-sm text-text-secondary leading-relaxed pt-4">
           <section className="p-4 rounded-xl border border-border bg-surface text-foreground">
             <p className="font-medium text-sm">All EF Tools plugins are completely free of charge.</p>
           </section>

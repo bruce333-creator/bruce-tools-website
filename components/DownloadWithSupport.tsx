@@ -10,6 +10,7 @@ interface DownloadWithSupportProps {
   size?: "sm" | "md" | "lg";
   showPreSupportNote?: boolean;
   className?: string;
+  secondaryAction?: React.ReactNode;
 }
 
 export default function DownloadWithSupport({
@@ -18,35 +19,38 @@ export default function DownloadWithSupport({
   size = "md",
   showPreSupportNote = false,
   className = "",
+  secondaryAction,
 }: DownloadWithSupportProps) {
   const [downloadTriggered, setDownloadTriggered] = useState(false);
 
   const buttonSizeClass =
     size === "lg"
-      ? "px-5 py-2.5 text-sm"
+      ? "px-5 py-2.5 text-sm font-medium"
       : size === "sm"
-      ? "px-3.5 py-1.5 text-xs"
+      ? "px-3.5 py-1.5 text-xs font-medium"
       : "px-4 py-2 text-xs font-medium";
 
   return (
-    <div className={`space-y-2.5 ${className}`}>
+    <div className={`space-y-3 w-full ${className}`}>
       <div className="flex flex-wrap items-center gap-3">
         {isDownloadReady ? (
           <a
             href={downloadUrl}
             download
             onClick={() => setDownloadTriggered(true)}
-            className={`${buttonSizeClass} rounded-lg bg-accent text-white hover:bg-accent-hover transition-colors font-medium inline-flex items-center gap-2`}
+            className={`${buttonSizeClass} rounded-lg bg-accent text-white hover:bg-accent-hover transition-all inline-flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(37,99,235,0.25)] hover:shadow-[0_0_25px_rgba(37,99,235,0.4)]`}
           >
-            <Download size={size === "lg" ? 15 : 14} />
+            <Download size={size === "lg" ? 15 : 13} />
             Download
           </a>
         ) : (
-          <span className="px-4 py-2 rounded-lg border border-border bg-surface-secondary/40 text-text-muted cursor-not-allowed inline-flex items-center gap-2 text-xs">
-            <Download size={14} className="opacity-40" />
+          <span className={`${buttonSizeClass} rounded-lg border border-white/10 bg-white/[0.03] text-text-muted cursor-not-allowed inline-flex items-center justify-center gap-2 backdrop-blur-sm`}>
+            <Download size={size === "lg" ? 15 : 13} className="opacity-40" />
             Coming soon
           </span>
         )}
+
+        {secondaryAction}
       </div>
 
       {/* Pre-download support note */}
@@ -67,8 +71,8 @@ export default function DownloadWithSupport({
 
       {/* Post-download message (after user clicks Download) */}
       {downloadTriggered && (
-        <div className="p-3 rounded-xl border border-border bg-[#181817] text-xs text-text-secondary flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
-          <div className="flex items-start sm:items-center gap-2 text-foreground/90">
+        <div className="p-3.5 rounded-xl border border-white/10 bg-[#161822]/80 backdrop-blur-md text-xs text-text-secondary flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-[0_8px_24px_rgba(0,0,0,0.3)] animate-fadeIn">
+          <div className="flex items-start sm:items-center gap-2.5 text-foreground/90">
             <Heart size={14} className="text-[#3B82F6] shrink-0 mt-0.5 sm:mt-0" />
             <span>
               Download started! If EF Tools saves you time, consider supporting its development. Every contribution helps.
@@ -79,7 +83,7 @@ export default function DownloadWithSupport({
               href={KOFI_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-lg border border-[#333331] bg-[#222221] hover:bg-[#2C2C2B] hover:border-[#424240] text-foreground hover:text-white transition-colors inline-flex items-center gap-1 font-medium whitespace-nowrap"
+              className="px-3 py-1.5 rounded-lg border border-white/10 bg-white/[0.05] hover:bg-white/[0.1] hover:border-white/20 text-foreground hover:text-white transition-all inline-flex items-center gap-1 font-medium whitespace-nowrap backdrop-blur-sm"
             >
               <span>Support EF Tools</span>
               <ArrowUpRight size={11} className="text-text-muted" />

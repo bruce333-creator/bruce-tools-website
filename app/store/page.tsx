@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function StorePage() {
   return (
-    <main className="min-h-screen bg-[#141413] text-[#EDEDEC] pt-28 pb-32 px-6">
+    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-28 pb-32 px-6">
       <div className="max-w-6xl mx-auto space-y-12">
         
         {/* Back Link */}
@@ -36,11 +36,11 @@ export default function StorePage() {
         </section>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-border pt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
           {products.map((product) => (
             <article 
               key={product.id}
-              className="rounded-2xl border border-border bg-surface p-6 flex flex-col justify-between space-y-5 hover:border-border-hover transition-colors"
+              className="rounded-2xl border border-white/10 bg-[#14151f]/50 backdrop-blur-md p-6 flex flex-col justify-between space-y-5 hover:border-white/20 hover:bg-[#181926]/60 transition-all shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
             >
               <div className="space-y-3.5">
                 <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-border bg-surface-secondary">

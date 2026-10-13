@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <main className="min-h-screen bg-[#141413] text-[#EDEDEC] pt-28 pb-32 px-6">
+    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-28 pb-32 px-6">
       <div className="max-w-2xl mx-auto space-y-12">
         
         {/* Back Link */}
@@ -34,7 +34,7 @@ export default function About() {
         </section>
 
         {/* Content */}
-        <section className="space-y-6 text-sm sm:text-base text-text-secondary leading-relaxed border-t border-border pt-8">
+        <section className="space-y-6 text-sm sm:text-base text-text-secondary leading-relaxed pt-2">
           <p>
             EF Tools is a small collection of Python utilities I created to automate repetitive tasks in Autodesk Maya.
           </p>
@@ -49,7 +49,7 @@ export default function About() {
         </section>
 
         {/* Links */}
-        <section className="border-t border-border pt-8 flex items-center justify-between text-xs">
+        <section className="pt-6 flex items-center justify-between text-xs">
           <span className="text-text-muted">
             Autodesk Maya 2020–2025+
           </span>

@@ -29,7 +29,7 @@ export default function Navbar() {
     <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${
         scrolled 
-          ? "bg-[#141413]/90 backdrop-blur-md border-b border-border py-3" 
+          ? "bg-[#090A0F]/80 backdrop-blur-xl border-b border-white/[0.08] py-3 shadow-[0_4px_30px_rgba(0,0,0,0.3)]" 
           : "bg-transparent border-b border-transparent py-4"
       }`}
     >
@@ -50,15 +50,15 @@ export default function Navbar() {
         <div className="hidden md:flex flex-1 items-center justify-center">
           <MotionNavigationMenu
             viewport={true}
-            viewportClassName="bg-[#1C1C1B] border border-border rounded-xl shadow-2xl"
+            viewportClassName="bg-[#14151f]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_16px_36px_rgba(0,0,0,0.4)]"
           >
-            <MotionNavigationMenuList highlightClassName="bg-[#262625] rounded-lg">
+            <MotionNavigationMenuList highlightClassName="bg-white/[0.08] rounded-lg">
               {/* Products Dropdown */}
               <MotionNavigationMenuItem value="products">
                 <MotionNavigationMenuTrigger className="uppercase text-xs tracking-wider font-medium text-[#D4D4D2] hover:text-white px-3.5 py-1.5 h-auto rounded-lg">
                   PRODUCTS
                 </MotionNavigationMenuTrigger>
-                <MotionNavigationMenuContent highlightClassName="bg-[#282827] rounded-lg">
+                <MotionNavigationMenuContent highlightClassName="bg-white/[0.08] rounded-lg">
                   <div className="w-[240px] p-1.5 space-y-0.5">
                     {products.map((product) => (
                       <MotionNavigationMenuLink
@@ -112,7 +112,7 @@ export default function Navbar() {
             href={KOFI_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg border border-[#333331] bg-[#1E1E1D] text-xs font-medium text-[#EDEDEC] hover:bg-[#282827] hover:border-[#424240] hover:text-white transition-colors inline-flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-lg border border-white/10 bg-white/[0.05] text-xs font-medium text-[#EDEDEC] hover:bg-white/[0.1] hover:border-white/20 hover:text-white transition-all inline-flex items-center gap-1.5 backdrop-blur-sm"
           >
             <span>Support EF Tools</span>
             <ArrowUpRight size={12} className="text-text-muted" />
@@ -121,7 +121,7 @@ export default function Navbar() {
             href="https://github.com/bruce333-creator"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-lg border border-[#333331] bg-[#222221] text-xs uppercase tracking-wider text-[#D4D4D2] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white transition-colors inline-flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-lg border border-white/10 bg-white/[0.05] text-xs uppercase tracking-wider text-[#D4D4D2] hover:bg-white/[0.1] hover:border-white/20 hover:text-white transition-all inline-flex items-center gap-1.5 backdrop-blur-sm"
           >
             <span>GITHUB</span>
             <ArrowUpRight size={12} className="text-text-muted" />
@@ -133,7 +133,7 @@ export default function Navbar() {
           type="button"
           aria-label="Toggle navigation menu"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden px-2.5 py-1.5 rounded-lg border border-[#333331] bg-[#222221] text-[#EDEDEC] hover:bg-[#2C2C2B] transition-colors"
+          className="md:hidden px-2.5 py-1.5 rounded-lg border border-white/10 bg-white/[0.05] text-[#EDEDEC] hover:bg-white/[0.1] transition-all backdrop-blur-sm"
         >
           {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
         </button>
@@ -141,7 +141,7 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-border bg-[#141413] px-6 py-4 flex flex-col gap-2">
+        <div className="md:hidden border-b border-white/10 bg-[#090A0F]/95 backdrop-blur-xl px-6 py-4 flex flex-col gap-2">
           <Link
             href="/#products"
             onClick={() => setMobileMenuOpen(false)}
