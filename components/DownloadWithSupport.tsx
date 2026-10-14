@@ -38,15 +38,14 @@ export default function DownloadWithSupport({
             href={downloadUrl}
             download
             onClick={() => setDownloadTriggered(true)}
-            className={`${buttonSizeClass} rounded-lg bg-accent text-white hover:bg-accent-hover active:bg-white active:text-black active:border-white transition-all inline-flex items-center justify-center gap-2`}
+            className={`${buttonSizeClass} rounded-md bg-[#EDEDEC] text-[#151515] hover:bg-white hover:text-black active:scale-[0.99] transition-all inline-flex items-center justify-center gap-1.5 font-medium shadow-sm`}
           >
-            <Download size={size === "lg" ? 15 : 13} />
-            Download
+            <span>Download</span>
+            <ArrowUpRight size={size === "lg" ? 15 : 13} />
           </a>
         ) : (
-          <span className={`${buttonSizeClass} rounded-lg border border-white/[0.04] bg-white/[0.02] text-text-muted cursor-not-allowed inline-flex items-center justify-center gap-2`}>
-            <Download size={size === "lg" ? 15 : 13} className="opacity-40" />
-            Coming soon
+          <span className={`${buttonSizeClass} rounded-md border border-white/[0.08] bg-white/[0.03] text-text-muted cursor-not-allowed inline-flex items-center justify-center gap-1.5 font-medium`}>
+            <span>Coming soon</span>
           </span>
         )}
 
@@ -71,7 +70,7 @@ export default function DownloadWithSupport({
 
       {/* Post-download message (after user clicks Download) */}
       {downloadTriggered && (
-        <div className="p-3 rounded-xl border border-white/[0.06] bg-[#12131A] text-xs text-text-secondary flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
+        <div className="p-3 rounded-xl border border-white/[0.08] bg-[#1B1B1B] text-xs text-text-secondary flex flex-col sm:flex-row sm:items-center justify-between gap-3 animate-fadeIn">
           <div className="flex items-start sm:items-center gap-2 text-foreground/90">
             <Heart size={14} className="text-[#3B82F6] shrink-0 mt-0.5 sm:mt-0" />
             <span>
@@ -83,7 +82,7 @@ export default function DownloadWithSupport({
               href={KOFI_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-lg border border-white/[0.06] bg-white/[0.03] hover:bg-white/[0.07] hover:border-white/[0.12] text-foreground hover:text-white active:bg-white active:text-black active:border-white transition-all inline-flex items-center gap-1 font-medium whitespace-nowrap"
+              className="px-3 py-1.5 rounded-md border border-white/[0.12] bg-transparent hover:bg-white/[0.04] hover:border-white/30 text-white transition-all inline-flex items-center gap-1 font-medium whitespace-nowrap"
             >
               <span>SUPPORT</span>
               <ArrowUpRight size={11} className="opacity-70" />

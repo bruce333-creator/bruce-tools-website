@@ -62,7 +62,7 @@ export default async function DocPage({ params }: { params: Promise<{ plugin: st
             <span>•</span>
             <span className="text-text-muted">{product.compatibility}</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-medium text-foreground tracking-tight">
+          <h1 className="font-heading text-2xl sm:text-3xl font-medium text-white tracking-tight">
             {product.name}
           </h1>
         </div>
@@ -77,7 +77,7 @@ export default async function DocPage({ params }: { params: Promise<{ plugin: st
       </div>
 
       {/* Markdown rendered body */}
-      <article className="prose prose-invert max-w-none text-text-secondary text-sm leading-relaxed prose-headings:text-foreground prose-headings:font-normal prose-h1:text-xl prose-h2:text-lg prose-h2:border-b prose-h2:border-border prose-h2:pb-1.5 prose-h2:mt-8 prose-h3:text-base prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-code:text-[#ECECEB] prose-code:bg-surface-secondary prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-xs prose-pre:bg-surface prose-pre:border prose-pre:border-border prose-pre:rounded-xl prose-table:border-border prose-th:text-foreground prose-th:border-border prose-td:border-border">
+      <article className="prose prose-invert max-w-none text-text-secondary text-sm leading-relaxed prose-headings:font-heading prose-headings:font-medium prose-headings:text-white prose-h1:text-xl prose-h2:text-lg prose-h2:border-b prose-h2:border-white/[0.08] prose-h2:pb-1.5 prose-h2:mt-8 prose-h3:text-base prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-code:text-[#ECECEB] prose-code:bg-[#1B1B1B] prose-code:border prose-code:border-white/[0.08] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-xs prose-pre:bg-[#1B1B1B] prose-pre:border prose-pre:border-white/[0.08] prose-pre:rounded-xl prose-table:border-white/[0.08] prose-th:text-white prose-th:border-white/[0.08] prose-td:border-white/[0.08]">
         <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
           {markdownContent}
         </ReactMarkdown>

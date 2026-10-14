@@ -8,6 +8,7 @@ export type Product = {
   platforms: string;
   downloadUrl: string; // Direct file URL on GitHub Releases
   isDownloadReady: boolean;
+  logoImage: string;
   heroImage: string;
   uiScreenshot: string;
   detailsPath: string;
@@ -30,6 +31,7 @@ export const products: Product[] = [
     platforms: "Windows & macOS",
     downloadUrl: "https://github.com/bruce333-creator/Rman_Node/releases/download/maj/RMNW.zip",
     isDownloadReady: true,
+    logoImage: "/images/logo_rman_node.png",
     heroImage: "/images/store/renderman-wrangler-logo.jpg",
     uiScreenshot: "/images/store/renderman-ui.jpg",
     detailsPath: "/products/renderman-node-wrangler",
@@ -59,6 +61,7 @@ export const products: Product[] = [
     platforms: "Windows & macOS",
     downloadUrl: "https://github.com/bruce333-creator/Ultimate_Ref_Tool/releases/download/maj/ultimate_ref_tool_v21.py",
     isDownloadReady: true,
+    logoImage: "/images/logo_ultimate_ref.png",
     heroImage: "/images/store/ultimate-ref-logo.jpg",
     uiScreenshot: "/images/store/ultimate-ref-ui.jpg",
     detailsPath: "/products/ultimate-ref-tool",
@@ -88,6 +91,7 @@ export const products: Product[] = [
     platforms: "Windows & macOS",
     downloadUrl: "", // Pending release
     isDownloadReady: false,
+    logoImage: "/images/logo_arnode.png",
     heroImage: "",
     uiScreenshot: "",
     detailsPath: "/products/arnold-node-wrangler",

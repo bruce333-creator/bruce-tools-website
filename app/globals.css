@@ -4,31 +4,29 @@
 
 @layer base {
   :root {
-    --background: #090A0D;
-    --surface: #101116;
-    --surface-secondary: #15161E;
-    --surface-tertiary: #1A1C26;
+    --background: #151515;
+    --surface: #1E1E1E;
+    --surface-secondary: #252525;
+    --surface-tertiary: #2D2D2D;
     --foreground: #EDEDEC;
     --text-secondary: #A0A09C;
-    --text-muted: #6E6E6A;
-    --border: rgba(255, 255, 255, 0.04);
-    --border-hover: rgba(255, 255, 255, 0.08);
+    --text-muted: #737373;
+    --border: rgba(255, 255, 255, 0.06);
+    --border-hover: rgba(255, 255, 255, 0.12);
     --accent: #2563EB;
     --accent-hover: #3B82F6;
     --accent-subtle: rgba(37, 99, 235, 0.15);
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: var(--font-manrope), sans-serif;
+    letter-spacing: -0.02em;
   }
 }
 
 body {
   color: var(--foreground);
   background-color: var(--background);
-  background-image: 
-    radial-gradient(ellipse 80% 70% at 50% 30%, transparent 20%, rgba(9, 10, 13, 0.8) 70%, #090A0D 100%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  background-size: 100% 100%, 32px 32px, 32px 32px;
-  background-repeat: no-repeat, repeat, repeat;
-  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

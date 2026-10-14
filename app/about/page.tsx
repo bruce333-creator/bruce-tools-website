@@ -9,14 +9,14 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-24 pb-16 px-6">
+    <main className="min-h-screen bg-[#151515] text-[#EDEDEC] pt-24 pb-16 px-6">
       <div className="max-w-2xl mx-auto space-y-6">
         
         {/* Back Link */}
         <div>
           <Link 
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-white transition-colors"
           >
             <ArrowLeft size={13} />
             <span>Home</span>
@@ -25,7 +25,7 @@ export default function About() {
 
         {/* Header */}
         <section className="space-y-3">
-          <h1 className="text-3xl sm:text-4xl font-normal tracking-tight text-foreground">
+          <h1 className="font-heading text-3xl sm:text-4xl font-medium tracking-tight text-white">
             About EF Tools
           </h1>
           <p className="text-sm text-text-muted">
@@ -57,7 +57,7 @@ export default function About() {
             href="https://github.com/bruce333-creator"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-1.5 rounded-lg border border-[#333331] bg-[#222221] text-[#D4D4D2] hover:bg-[#2C2C2B] hover:border-[#424240] hover:text-white transition-colors inline-flex items-center gap-1.5"
+            className="px-3.5 py-1.5 rounded-md border border-white/[0.12] bg-white/[0.03] text-text-secondary hover:text-white hover:border-white/30 transition-all inline-flex items-center gap-1.5 font-medium"
           >
             <span>GitHub Releases</span>
             <ArrowUpRight size={13} />

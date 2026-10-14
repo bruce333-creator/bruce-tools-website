@@ -50,12 +50,12 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-24 pb-16 px-6">
+    <main className="min-h-screen bg-[#151515] text-[#EDEDEC] pt-24 pb-16 px-6">
       <div className="max-w-2xl mx-auto space-y-6">
         <div>
           <Link 
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground active:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-white transition-colors"
           >
             <ArrowLeft size={13} />
             <span>Home</span>
@@ -63,7 +63,7 @@ export default function ContactPage() {
         </div>
 
         <section className="space-y-2">
-          <h1 className="text-3xl sm:text-4xl font-normal tracking-tight text-foreground">
+          <h1 className="font-heading text-3xl sm:text-4xl font-medium tracking-tight text-white">
             Contact
           </h1>
           <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
@@ -71,19 +71,19 @@ export default function ContactPage() {
           </p>
         </section>
 
-        <div className="rounded-2xl border border-[#232530] bg-[#121318] p-5 sm:p-6 shadow-md">
+        <div className="rounded-xl border border-white/[0.06] bg-[#1B1B1B] p-5 sm:p-6">
           {status === "success" ? (
             <div className="flex flex-col items-center justify-center py-8 text-center space-y-3">
-              <div className="w-10 h-10 bg-[#161822] border border-[#232530] text-accent rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#151515] border border-white/[0.08] text-white rounded-full flex items-center justify-center">
                 <CheckCircle size={20} />
               </div>
-              <h2 className="text-lg font-medium text-foreground">Message Sent</h2>
+              <h2 className="font-heading text-lg font-medium text-white">Message Sent</h2>
               <p className="text-xs text-text-secondary max-w-sm">
                 Thank you. Your message has been transmitted and I will review it shortly.
               </p>
               <button
                 onClick={() => setStatus("idle")}
-                className="mt-3 px-4 py-2 rounded-lg border border-[#2A2C38] bg-[#161822] hover:bg-[#222432] active:bg-white active:text-black active:border-white text-xs text-text-secondary hover:text-foreground transition-all"
+                className="mt-3 px-4 py-2 rounded-md border border-white/[0.12] bg-transparent hover:bg-white/[0.04] text-xs text-text-secondary hover:text-white transition-all"
               >
                 Send another message
               </button>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-[#0E0F14] border border-[#232530] rounded-lg py-2 pl-9 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors"
+                    className="w-full bg-[#151515] border border-white/[0.08] rounded-md py-2 pl-9 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-white/30 transition-colors"
                     placeholder="you@studio.com"
                     disabled={isSubmitting}
                   />
@@ -132,7 +132,7 @@ export default function ContactPage() {
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full bg-[#0E0F14] border border-[#232530] rounded-lg py-2 pl-9 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors"
+                    className="w-full bg-[#151515] border border-white/[0.08] rounded-md py-2 pl-9 pr-3 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-white/30 transition-colors"
                     placeholder="e.g. RenderMan Node Wrangler issue on Maya 2024"
                     disabled={isSubmitting}
                   />
@@ -149,7 +149,7 @@ export default function ContactPage() {
                   rows={4}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-[#0E0F14] border border-[#232530] rounded-lg p-2.5 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-accent transition-colors resize-none"
+                  className="w-full bg-[#151515] border border-white/[0.08] rounded-md p-2.5 text-xs sm:text-sm text-foreground placeholder:text-text-muted focus:outline-none focus:border-white/30 transition-colors resize-none"
                   placeholder="Describe your question or reproduction steps..."
                   disabled={isSubmitting}
                 />
@@ -158,7 +158,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-2.5 rounded-lg bg-[#EDEDEC] text-[#141413] hover:bg-white active:bg-white active:text-black active:border-white text-xs font-medium transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-sm"
+                className="w-full py-2.5 rounded-md bg-[#EDEDEC] text-[#151515] hover:bg-white active:scale-[0.99] text-xs font-medium transition-all flex items-center justify-center gap-2 disabled:opacity-50 shadow-sm"
               >
                 {isSubmitting ? (
                   <>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Download, ArrowRight, ArrowLeft } from "lucide-react";
+import { Download, ArrowRight, ArrowLeft, ArrowUpRight } from "lucide-react";
 import { products } from "@/config/products";
 import type { Metadata } from "next";
 
@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 
 export default function StorePage() {
   return (
-    <main className="min-h-screen bg-transparent text-[#EDEDEC] pt-24 pb-16 px-6">
+    <main className="min-h-screen bg-[#151515] text-[#EDEDEC] pt-24 pb-16 px-6">
       <div className="max-w-6xl mx-auto space-y-6">
         
         {/* Back Link */}
         <div>
           <Link 
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-foreground active:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs text-text-secondary hover:text-white transition-colors"
           >
             <ArrowLeft size={13} />
             <span>Home</span>
@@ -27,7 +27,7 @@ export default function StorePage() {
 
         {/* Header */}
         <section className="space-y-2 max-w-xl">
-          <h1 className="text-3xl sm:text-4xl font-normal tracking-tight text-foreground">
+          <h1 className="font-heading text-3xl sm:text-4xl font-medium tracking-tight text-white">
             All Tools
           </h1>
           <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
@@ -40,10 +40,10 @@ export default function StorePage() {
           {products.map((product) => (
             <article 
               key={product.id}
-              className="rounded-2xl border border-[#232530] bg-[#121318] p-5 flex flex-col justify-between space-y-4 hover:border-[#333644] transition-colors shadow-md"
+              className="rounded-xl border border-white/[0.05] bg-[#1B1B1B] p-5 flex flex-col justify-between space-y-4 hover:border-white/[0.12] transition-colors"
             >
               <div className="space-y-3">
-                <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-[#232530] bg-[#090A0D]">
+                <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden border border-white/[0.05] bg-[#121212]">
                   <Image 
                     src={product.uiScreenshot || product.heroImage} 
                     alt={product.name} 
@@ -58,8 +58,8 @@ export default function StorePage() {
                   <span className="text-text-muted">{product.compatibility}</span>
                 </div>
 
-                <h2 className="text-xl font-medium text-foreground tracking-tight">
-                  <Link href={product.detailsPath} className="hover:text-accent transition-colors">
+                <h2 className="font-heading text-xl font-medium text-foreground tracking-tight">
+                  <Link href={product.detailsPath} className="hover:text-white transition-colors">
                     {product.name}
                   </Link>
                 </h2>
@@ -69,15 +69,15 @@ export default function StorePage() {
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-[#232530] flex items-center justify-between gap-3 text-xs">
+              <div className="pt-3 border-t border-white/[0.05] flex items-center justify-between gap-3 text-xs">
                 {product.isDownloadReady ? (
                   <a
                     href={product.downloadUrl}
                     download
-                    className="px-4 py-2 rounded-lg bg-accent text-white hover:bg-accent-hover active:bg-white active:text-black active:border-white font-medium transition-all inline-flex items-center gap-1.5"
+                    className="px-4 py-2 rounded-md bg-[#EDEDEC] text-[#151515] hover:bg-white hover:text-black font-medium transition-all inline-flex items-center gap-1.5 shadow-sm"
                   >
-                    <Download size={13} />
-                    Download
+                    <span>Download</span>
+                    <ArrowUpRight size={13} />
                   </a>
                 ) : (
                   <span className="text-xs text-text-muted">
@@ -87,10 +87,10 @@ export default function StorePage() {
 
                 <Link
                   href={product.detailsPath}
-                  className="px-3.5 py-2 rounded-lg border border-[#2A2C38] bg-[#161822] text-[#D4D4D2] hover:bg-[#222432] hover:border-[#383C4E] hover:text-white active:bg-white active:text-black active:border-white transition-all inline-flex items-center gap-1.5"
+                  className="text-xs text-text-secondary hover:text-white underline underline-offset-4 decoration-white/20 hover:decoration-white/80 transition-colors inline-flex items-center gap-1"
                 >
-                  Details
-                  <ArrowRight size={13} />
+                  <span>Details</span>
+                  <ArrowUpRight size={13} />
                 </Link>
               </div>
             </article>

@@ -3,10 +3,10 @@ import { products, KOFI_URL } from "@/config/products";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-[#232530] bg-[#090A0D] text-text-secondary pt-10 pb-8 px-6 text-sm">
+    <footer className="w-full border-t border-white/[0.05] bg-[#121212] text-text-secondary pt-10 pb-8 px-6 text-sm">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-6">
         <div className="max-w-sm space-y-1.5">
-          <Link href="/" className="text-base font-medium text-foreground tracking-tight hover:text-white transition-colors">
+          <Link href="/" className="font-heading text-base font-medium text-foreground tracking-tight hover:text-white transition-colors">
             EF Tools
           </Link>
           <p className="text-xs text-text-secondary leading-relaxed">
@@ -42,7 +42,7 @@ export default function Footer() {
               rel="noopener noreferrer" 
               className="hover:text-foreground active:text-white transition-colors"
             >
-              Support the project
+              Support
             </a>
             <a 
               href="https://github.com/bruce333-creator" 
@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto border-t border-[#232530] mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between text-[11px] text-text-muted gap-2">
+      <div className="max-w-6xl mx-auto border-t border-white/[0.05] mt-6 pt-4 flex flex-col sm:flex-row items-center justify-between text-[11px] text-text-muted gap-2">
         <p>© {new Date().getFullYear()} Enzo Freminet — EF Tools.</p>
         <p>Free for personal and commercial use.</p>
       </div>
