@@ -19,6 +19,13 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "EF Tools | Free Maya Plugins",
   description: "Free tools for Autodesk Maya artists: Rman Node, Ultimate Ref Tool, and ArNode.",
+  icons: {
+    icon: [
+      { url: "/images/logo.png?v=2", type: "image/png" },
+    ],
+    shortcut: "/images/logo.png?v=2",
+    apple: "/images/logo.png?v=2",
+  },
 };
 
 export default function RootLayout({

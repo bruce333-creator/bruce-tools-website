@@ -3,6 +3,27 @@ import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { products, KOFI_URL } from "@/config/products";
 import ShowcaseBanner from "@/components/ShowcaseBanner";
 
+function MayaGizmo() {
+  return (
+    <svg className="maya-gizmo" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Axe Y (Vert) */}
+      <g className="axis-y">
+        <line x1="12" y1="58" x2="12" y2="15" stroke="currentColor" strokeWidth="2.5" />
+        <polygon points="12,5 7,17 17,17" fill="currentColor" />
+        <text x="18" y="16" fill="currentColor" fontSize="11" fontFamily="monospace" fontWeight="bold">Y</text>
+      </g>
+      {/* Axe X (Rouge) */}
+      <g className="axis-x">
+        <line x1="12" y1="58" x2="55" y2="58" stroke="currentColor" strokeWidth="2.5" />
+        <polygon points="65,58 53,53 53,63" fill="currentColor" />
+        <text x="54" y="48" fill="currentColor" fontSize="11" fontFamily="monospace" fontWeight="bold">X</text>
+      </g>
+      {/* Centre du Gizmo */}
+      <rect x="8" y="54" width="8" height="8" fill="#fbbf24" stroke="#000" strokeWidth="1" />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#151515] text-[#EDEDEC] pt-24 pb-20 px-6">
@@ -12,10 +33,34 @@ export default function Home() {
             HERO SECTION
             -------------------------------------------------- */}
         <section className="pt-6 sm:pt-14 pb-2 flex flex-col items-center text-center max-w-2xl mx-auto space-y-6">
-          {/* Main Title: Strictly "Less setup. More making." with no text below */}
-          <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-white leading-[1.1]">
-            Less setup. More making.
-          </h1>
+          {/* Main Title: Maya Gizmo 2D + Tetris Snap Animation (4 words with green wireframe outline) */}
+          <div className="hero-title-container">
+            <h1 className="maya-title font-heading text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-white leading-[1.15]">
+              <span className="inline-block whitespace-nowrap">
+                <span className="word-block word-1">
+                  Less
+                  <MayaGizmo />
+                </span>
+                {" "}
+                <span className="word-block word-2">
+                  setup.
+                  <MayaGizmo />
+                </span>
+              </span>
+              <br />
+              <span className="inline-block whitespace-nowrap">
+                <span className="word-block word-3">
+                  More
+                  <MayaGizmo />
+                </span>
+                {" "}
+                <span className="word-block word-4">
+                  making.
+                  <MayaGizmo />
+                </span>
+              </span>
+            </h1>
+          </div>
 
           {/* Action button: Discover scrolling down to the banner with discreet animated down arrow */}
           <div className="pt-2 flex flex-col items-center gap-3">
@@ -68,12 +113,14 @@ export default function Home() {
                   className="p-6 rounded-2xl bg-[#1B1B1B] border border-white/[0.05] hover:border-white/[0.12] hover:bg-[#202020] transition-all flex flex-col justify-between group"
                 >
                   <div className="flex items-center gap-4">
-                    {/* 2D Original Logo - Unframed, large */}
-                    <img 
-                      src={product.logoImage} 
-                      alt={product.name} 
-                      className="w-14 h-14 sm:w-16 sm:h-16 object-contain shrink-0 group-hover:scale-105 transition-transform"
-                    />
+                    {/* 2D Original Logo - Unframed (ArNode smaller) */}
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 flex items-center justify-center">
+                      <img 
+                        src={product.logoImage} 
+                        alt={product.name} 
+                        className={`${product.id === "arnold-node-wrangler" ? "w-10 h-10 sm:w-11 sm:h-11" : "w-14 h-14 sm:w-16 sm:h-16"} object-contain group-hover:scale-105 transition-transform`}
+                      />
+                    </div>
                     
                     {/* Plugin Name in large - No version, No compatibility */}
                     <div className="flex-1 min-w-0">

@@ -73,3 +73,171 @@ html {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #3C3C3A;
 }
+
+/* =========================================
+   MAYA HERO TITLE GIZMO & TETRIS SNAP (4 WORDS)
+   ========================================= */
+.hero-title-container {
+  text-align: center;
+  overflow: visible;
+}
+
+.word-block {
+  position: relative;
+  display: inline-block;
+  padding: 0 4px;
+  will-change: transform, opacity, text-shadow;
+}
+
+/* Positionnement du Gizmo SVG exactement au centre de chaque mot */
+.maya-gizmo {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-17.14%, -82.86%);
+  pointer-events: none;
+  z-index: 10;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9));
+}
+
+/* Couleurs par défaut des axes Maya */
+.axis-x { color: #ff3b30; } /* Rouge X */
+.axis-y { color: #28cd41; } /* Vert Y */
+
+/* Contour vert style sélection wireframe Maya pendant l'animation */
+@keyframes maya-outline-fade {
+  0%, 75% {
+    text-shadow: 
+      0 0 1px #28cd41,
+      -1px -1px 0 #28cd41,
+      1px -1px 0 #28cd41,
+      -1px 1px 0 #28cd41,
+      1px 1px 0 #28cd41,
+      0 0 8px rgba(40, 205, 65, 0.85);
+    -webkit-text-stroke: 1px #28cd41;
+  }
+  100% {
+    text-shadow: none;
+    -webkit-text-stroke: 0px transparent;
+  }
+}
+
+/* Disparition du Gizmo */
+@keyframes gizmo-fade {
+  0%, 12% { opacity: 0; transform: translate(-17.14%, -82.86%) scale(0.8); }
+  20%, 80% { opacity: 1; transform: translate(-17.14%, -82.86%) scale(1); }
+  100% { opacity: 0; transform: translate(-17.14%, -82.86%) scale(0.85); visibility: hidden; }
+}
+
+/* Couleurs actives des axes */
+@keyframes active-axis-step1 {
+  0%, 15% { color: inherit; }
+  16%, 55% { color: #facc15; }
+  56%, 100% { color: inherit; }
+}
+@keyframes active-axis-step2 {
+  0%, 55% { color: inherit; }
+  56%, 90% { color: #facc15; }
+  91%, 100% { color: inherit; }
+}
+
+/* =========================================
+WORD 1 : "Less" (Haut Gauche -> Glisse X -> Descend Y)
+========================================= */
+.word-1 {
+  animation: tetris-move-1 0.75s cubic-bezier(0.2, 1, 0.3, 1) forwards, maya-outline-fade 0.75s ease forwards;
+}
+.word-1 .maya-gizmo {
+  animation: gizmo-fade 0.75s ease forwards;
+}
+.word-1 .axis-x {
+  animation: active-axis-step1 0.75s steps(1) forwards;
+}
+.word-1 .axis-y {
+  animation: active-axis-step2 0.75s steps(1) forwards;
+}
+
+@keyframes tetris-move-1 {
+  0% { opacity: 0; transform: translate(-60px, -40px); }
+  15% { opacity: 1; transform: translate(-60px, -40px); }
+  55% { transform: translate(0px, -40px); }
+  90%, 100% { opacity: 1; transform: translate(0px, 0px); }
+}
+
+/* =========================================
+WORD 2 : "setup." (Haut Droite -> Descend Y -> Glisse X)
+========================================= */
+.word-2 {
+  opacity: 0;
+  animation: tetris-move-2 0.75s cubic-bezier(0.2, 1, 0.3, 1) 0.22s forwards, maya-outline-fade 0.75s ease 0.22s forwards;
+}
+.word-2 .maya-gizmo {
+  opacity: 0;
+  animation: gizmo-fade 0.75s ease 0.22s forwards;
+}
+.word-2 .axis-y {
+  animation: active-axis-step1 0.75s steps(1) 0.22s forwards;
+}
+.word-2 .axis-x {
+  animation: active-axis-step2 0.75s steps(1) 0.22s forwards;
+}
+
+@keyframes tetris-move-2 {
+  0% { opacity: 0; transform: translate(50px, -45px); }
+  15% { opacity: 1; transform: translate(50px, -45px); }
+  55% { transform: translate(50px, 0px); }
+  90%, 100% { opacity: 1; transform: translate(0px, 0px); }
+}
+
+/* =========================================
+WORD 3 : "More" (Bas Gauche -> Monte Y -> Glisse X)
+========================================= */
+.word-3 {
+  opacity: 0;
+  animation: tetris-move-3 0.75s cubic-bezier(0.2, 1, 0.3, 1) 0.44s forwards, maya-outline-fade 0.75s ease 0.44s forwards;
+}
+.word-3 .maya-gizmo {
+  opacity: 0;
+  animation: gizmo-fade 0.75s ease 0.44s forwards;
+}
+.word-3 .axis-y {
+  animation: active-axis-step1 0.75s steps(1) 0.44s forwards;
+}
+.word-3 .axis-x {
+  animation: active-axis-step2 0.75s steps(1) 0.44s forwards;
+}
+
+@keyframes tetris-move-3 {
+  0% { opacity: 0; transform: translate(-55px, 45px); }
+  15% { opacity: 1; transform: translate(-55px, 45px); }
+  55% { transform: translate(-55px, 0px); }
+  90%, 100% { opacity: 1; transform: translate(0px, 0px); }
+}
+
+/* =========================================
+WORD 4 : "making." (Bas Droite -> Glisse X -> Monte Y)
+========================================= */
+.word-4 {
+  opacity: 0;
+  animation: tetris-move-4 0.75s cubic-bezier(0.2, 1, 0.3, 1) 0.66s forwards, maya-outline-fade 0.75s ease 0.66s forwards;
+}
+.word-4 .maya-gizmo {
+  opacity: 0;
+  animation: gizmo-fade 0.75s ease 0.66s forwards;
+}
+.word-4 .axis-x {
+  animation: active-axis-step1 0.75s steps(1) 0.66s forwards;
+}
+.word-4 .axis-y {
+  animation: active-axis-step2 0.75s steps(1) 0.66s forwards;
+}
+
+@keyframes tetris-move-4 {
+  0% { opacity: 0; transform: translate(65px, 45px); }
+  15% { opacity: 1; transform: translate(65px, 45px); }
+  55% { transform: translate(0px, 45px); }
+  90%, 100% { opacity: 1; transform: translate(0px, 0px); }
+}
+

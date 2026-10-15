@@ -78,13 +78,13 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         
-        {/* Left: Transparent logo inverted to pure white, matching category icon size */}
+        {/* Left: New EF logo from public/images/logo.png */}
         <div className="flex items-center min-w-[140px]">
-          <Link href="/" className="flex items-center hover:opacity-85 transition-opacity">
+          <Link href="/" className="flex items-center hover:opacity-85 transition-opacity" aria-label="EF Tools">
             <img 
-              src="/images/logo_transparent.png" 
+              src="/images/logo.png" 
               alt="EF Tools Logo" 
-              className="h-8 sm:h-9 w-auto object-contain brightness-0 invert" 
+              className="h-8 sm:h-9 w-auto object-contain" 
             />
           </Link>
         </div>
@@ -151,12 +151,14 @@ export default function Navbar() {
                             onClick={() => setProductsOpen(false)}
                             className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/[0.06] transition-colors group"
                           >
-                            {/* Logo on the left: Large, unbordered, no frame */}
-                            <img
-                              src={product.logoImage}
-                              alt={product.name}
-                              className="w-9 h-9 object-contain shrink-0 group-hover:scale-105 transition-transform"
-                            />
+                            {/* Logo on the left: Large, unbordered, no frame (ArNode resized) */}
+                            <div className="w-9 h-9 shrink-0 flex items-center justify-center">
+                              <img
+                                src={product.logoImage}
+                                alt={product.name}
+                                className={`${product.id === "arnold-node-wrangler" ? "w-6 h-6 sm:w-7 sm:h-7" : "w-9 h-9"} object-contain group-hover:scale-105 transition-transform`}
+                              />
+                            </div>
                             {/* Name on the right in large Manrope font */}
                             <span className="font-heading text-base font-medium text-white tracking-tight group-hover:text-accent transition-colors">
                               {product.name}
@@ -206,25 +208,35 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right: Secondary outline buttons for SUPPORT & GITHUB */}
-        <div className="hidden md:flex items-center justify-end gap-2.5 min-w-[200px]">
+        {/* Right: Official Ko-fi and GitHub links (pure logos, no frames) */}
+        <div className="hidden md:flex items-center justify-end gap-5 min-w-[140px]">
           <a
             href={KOFI_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-md border border-white/[0.12] hover:border-white/30 bg-transparent hover:bg-white/[0.04] text-xs uppercase tracking-wider font-medium text-text-secondary hover:text-white transition-all inline-flex items-center gap-1.5"
+            aria-label="Support on Ko-fi"
+            title="Support on Ko-fi"
+            className="flex items-center justify-center transition-opacity opacity-85 hover:opacity-100 group"
           >
-            <span>SUPPORT</span>
-            <ArrowUpRight size={12} className="opacity-70" />
+            <img
+              src="/images/kofi_logo.png"
+              alt="Support on Ko-fi"
+              className="h-7 sm:h-8 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
           </a>
           <a
             href="https://github.com/bruce333-creator"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3 py-1.5 rounded-md border border-white/[0.12] hover:border-white/30 bg-transparent hover:bg-white/[0.04] text-xs uppercase tracking-wider font-medium text-text-secondary hover:text-white transition-all inline-flex items-center gap-1.5"
+            aria-label="GitHub Profile"
+            title="GitHub Profile"
+            className="flex items-center justify-center transition-opacity opacity-85 hover:opacity-100 group"
           >
-            <span>GITHUB</span>
-            <ArrowUpRight size={12} className="opacity-70" />
+            <img
+              src="/images/GitHub_Logo.png"
+              alt="GitHub"
+              className="h-6 sm:h-7 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
           </a>
         </div>
 
@@ -260,7 +272,9 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-3 text-xs text-text-secondary hover:text-white py-1"
               >
-                <img src={p.logoImage} alt={p.name} className="w-5 h-5 object-contain" />
+                <div className="w-5 h-5 shrink-0 flex items-center justify-center">
+                  <img src={p.logoImage} alt={p.name} className={`${p.id === "arnold-node-wrangler" ? "w-3.5 h-3.5" : "w-5 h-5"} object-contain`} />
+                </div>
                 <span className="font-heading font-medium text-white">{p.name}</span>
               </Link>
             ))}
@@ -295,26 +309,28 @@ export default function Navbar() {
             </div>
             <span>Contact</span>
           </Link>
-          <div className="pt-2 flex items-center gap-2">
+          <div className="pt-3 pb-1 flex items-center justify-start gap-6 border-t border-white/[0.06] mt-2">
             <a
               href={KOFI_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex-1 py-1.5 px-3 rounded-md border border-white/[0.12] text-xs tracking-wider text-text-secondary hover:text-white uppercase inline-flex items-center justify-between"
+              aria-label="Support on Ko-fi"
+              title="Support on Ko-fi"
+              className="flex items-center transition-opacity opacity-85 hover:opacity-100"
             >
-              <span>SUPPORT</span>
-              <ArrowUpRight size={12} className="opacity-70" />
+              <img src="/images/kofi_logo.png" alt="Ko-fi" className="h-7 w-auto object-contain" />
             </a>
             <a
               href="https://github.com/bruce333-creator"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex-1 py-1.5 px-3 rounded-md border border-white/[0.12] text-xs tracking-wider text-text-secondary hover:text-white uppercase inline-flex items-center justify-between"
+              aria-label="GitHub"
+              title="GitHub"
+              className="flex items-center transition-opacity opacity-85 hover:opacity-100"
             >
-              <span>GITHUB</span>
-              <ArrowUpRight size={12} className="opacity-70" />
+              <img src="/images/GitHub_Logo.png" alt="GitHub" className="h-6 w-auto object-contain" />
             </a>
           </div>
         </div>
