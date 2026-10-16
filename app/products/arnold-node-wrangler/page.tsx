@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "ArNode | EF Tools",
-  description: "ArNode - Arnold shader utility for Autodesk Maya. Coming soon.",
+  description: "ArNode - Arnold Node Wrangler for Autodesk Maya. Automates PBR shader networks, texture drag & drop, and lookdev.",
 };
 
 export default function ArnoldNodeWranglerPage() {

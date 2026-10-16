@@ -35,21 +35,17 @@ export default async function DocPage({ params }: { params: Promise<{ plugin: st
 
   // Map product to actual filename in public/info
   let filename = `README_${product.id.replace(/-/g, '_')}.md`;
-  if (product.id === "arnold-node-wrangler" || resolvedParams.plugin === "vanta-node") {
-    filename = "README_vanta_node.md";
+  if (product.id === "arnold-node-wrangler" || resolvedParams.plugin === "vanta-node" || resolvedParams.plugin === "arnode") {
+    filename = "README_arnold_node_wrangler.md";
   }
 
   const filePath = path.join(process.cwd(), "public", "info", filename);
   
   let markdownContent = "";
-  if (product.id === "arnold-node-wrangler") {
-    markdownContent = `# ArNode\n\nComing soon.`;
-  } else {
-    try {
-      markdownContent = fs.readFileSync(filePath, "utf-8");
-    } catch (e) {
-      markdownContent = `# Documentation\n\nNo documentation file found for \`${product.name}\`.`;
-    }
+  try {
+    markdownContent = fs.readFileSync(filePath, "utf-8");
+  } catch (e) {
+    markdownContent = `# Documentation\n\nNo documentation file found for \`${product.name}\`.`;
   }
 
   return (

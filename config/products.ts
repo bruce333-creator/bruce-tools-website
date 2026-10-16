@@ -86,23 +86,35 @@ export const products: Product[] = [
     name: "ArNode",
     alternateName: "Arnold Node Wrangler",
     version: "v1.0",
-    shortDescription: "Coming soon",
-    compatibility: "Maya 2022+ (Arnold / MtoA)",
+    shortDescription: "Automates PBR shader creation, intelligent texture drag & drop, and production setups for Arnold in Autodesk Maya.",
+    compatibility: "Maya 2022+ · Arnold (MtoA) · Python 3",
     platforms: "Windows & macOS",
-    downloadUrl: "", // Pending release
-    isDownloadReady: false,
+    downloadUrl: "https://github.com/bruce333-creator/ArNode/releases/download/maj/ArNode.zip",
+    isDownloadReady: true,
     logoImage: "/images/logo_arnode.png",
-    heroImage: "",
-    uiScreenshot: "",
+    heroImage: "/images/arnold-ui.png",
+    uiScreenshot: "/images/arnold-ui.png",
     detailsPath: "/products/arnold-node-wrangler",
     docsPath: "/docs/arnold-node-wrangler",
-    features: [],
+    features: [
+      "Intelligent Drag & Drop for texture sets or folders directly into the viewport",
+      "Automatic PBR channel detection (Base Color, Roughness, Metalness, Normal, Bump, Disp, AO, SSS, Sheen, Coat)",
+      "Automated Ambient Occlusion network with multiplyDivide blending into Base Color",
+      "Strict color space handling: sRGB for color maps, Raw for physics & data maps",
+      "Arnold aiNormalMap & aiBump2d connection with DirectX green channel flip detection",
+      "15 Calibrated Arnold physical presets: Metal, Glass, Skin, Car Paint, Rubber, Wood, Plastic, and more",
+      "Non-destructive updates on existing aiStandardSurface materials",
+      "Built-in production tools: 4K Render Setup (3840x2160, AA=5), Batch .tx conversion, and sourceimages copier",
+      "1-Click autonomous drag-and-drop installer for Maya shelf"
+    ],
     technicalDetails: [
-      "Autodesk Maya 2022 or higher",
+      "Autodesk Maya 2022, 2023, 2024, 2025, 2026+",
       "Arnold for Maya (MtoA plugin installed)",
-      "Python 3 runtime",
-      "PySide/Qt modern interface"
-    ]
+      "Python 3 runtime (adaptive PySide2 & PySide6)",
+      "Supported formats: .tx, .png, .jpg, .jpeg, .exr, .tif, .tiff, .hdr",
+      "Zero external dependencies required"
+    ],
+    embeddedVideo: "/videos/arnode.mp4"
   }
 ];
 

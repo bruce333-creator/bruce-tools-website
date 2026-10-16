@@ -152,12 +152,17 @@ export default function Navbar() {
                             className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/[0.06] transition-colors group"
                           >
                             {/* Logo on the left: Large, unbordered, no frame (ArNode resized) */}
-                            <div className="w-9 h-9 shrink-0 flex items-center justify-center">
+                            <div className="w-9 h-9 shrink-0 flex items-center justify-center relative">
                               <img
                                 src={product.logoImage}
                                 alt={product.name}
                                 className={`${product.id === "arnold-node-wrangler" ? "w-6 h-6 sm:w-7 sm:h-7" : "w-9 h-9"} object-contain group-hover:scale-105 transition-transform`}
                               />
+                              {product.id === "arnold-node-wrangler" && (
+                                <span className="absolute -top-1.5 -right-2 px-1.5 py-[1px] rounded-full text-[8.5px] font-heading font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/80 backdrop-blur-md border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.4)] pointer-events-none leading-none">
+                                  NEW
+                                </span>
+                              )}
                             </div>
                             {/* Name on the right in large Manrope font */}
                             <span className="font-heading text-base font-medium text-white tracking-tight group-hover:text-accent transition-colors">
@@ -272,8 +277,13 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-3 text-xs text-text-secondary hover:text-white py-1"
               >
-                <div className="w-5 h-5 shrink-0 flex items-center justify-center">
+                <div className="w-5 h-5 shrink-0 flex items-center justify-center relative">
                   <img src={p.logoImage} alt={p.name} className={`${p.id === "arnold-node-wrangler" ? "w-3.5 h-3.5" : "w-5 h-5"} object-contain`} />
+                  {p.id === "arnold-node-wrangler" && (
+                    <span className="absolute -top-1.5 -right-2 px-1 py-[0.5px] rounded-full text-[6.5px] font-heading font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/85 backdrop-blur-md border border-emerald-500/40 shadow-[0_0_6px_rgba(16,185,129,0.35)] pointer-events-none leading-none">
+                      NEW
+                    </span>
+                  )}
                 </div>
                 <span className="font-heading font-medium text-white">{p.name}</span>
               </Link>

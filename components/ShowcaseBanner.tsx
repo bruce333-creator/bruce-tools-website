@@ -24,15 +24,21 @@ const showcaseItems: ShowcaseItem[] = [
     videoSrc: "/videos/home/ultimate-ref-demo.mp4",
     detailsPath: "/products/ultimate-ref-tool",
   },
+  {
+    id: "arnode",
+    name: "ArNode",
+    videoSrc: "/videos/arnode.mp4",
+    detailsPath: "/products/arnold-node-wrangler",
+  },
 ];
 
 export default function ShowcaseBanner() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const videoRefs = [useRef<HTMLVideoElement | null>(null), useRef<HTMLVideoElement | null>(null)];
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   // Switch video when current video ends or after safety timer
   useEffect(() => {
-    const nextVideo = videoRefs[activeIndex].current;
+    const nextVideo = videoRefs.current[activeIndex];
     if (nextVideo) {
       nextVideo.currentTime = 0;
       nextVideo.play().catch(() => {});
@@ -69,7 +75,7 @@ export default function ShowcaseBanner() {
               <video
                 key={item.id}
                 ref={(el) => {
-                  videoRefs[idx].current = el;
+                  videoRefs.current[idx] = el;
                 }}
                 src={item.videoSrc}
                 muted
